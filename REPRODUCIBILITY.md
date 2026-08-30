@@ -14,12 +14,15 @@ single sub-100-MB workshop artifact.
 
 ## What requires separately supplied inputs
 
-Re-running training, forces, response tensors, or MD requires the checkpoint
-files listed in `models/manifest.json`. Raw NPT/NVT trajectories are not
-included: 72 one-nanosecond lanes with native 0.5 fs velocity and stress
-records are too large for a code supplement. The exact generation and
-analysis programs are included, so supplied checkpoints can recreate those
-trajectories from `data/response/liquid-64.xyz`.
+Re-running checkpoint-dependent evaluation, forces, response tensors, or MD
+requires the files listed in `models/manifest.json`; retraining an adaptation
+requires its corresponding released foundation. They are omitted pending
+explicit redistribution authorization, as documented in `MODEL_ACCESS.md`.
+Raw NPT/NVT trajectories are also not included: 72 one-nanosecond lanes with
+native 0.5 fs velocity and stress records are too large for a code supplement.
+The exact generation and analysis programs are included, so authorized
+checkpoints can recreate those trajectories from
+`data/response/liquid-64.xyz`.
 
 This boundary is intentional and testable:
 

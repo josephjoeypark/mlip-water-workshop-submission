@@ -46,8 +46,10 @@ python -m pip install -r environment/requirements-production.txt
 Place the six checkpoint files named in [`models/README.md`](models/README.md)
 under `models/`, then verify their SHA-256 values against
 [`models/manifest.json`](models/manifest.json). The checkpoints are not in the
-public artifact because their combined size exceeds 100 MB and their upstream
-licenses require a separate academic-use distribution review.
+submission artifact because redistribution authorization for the adapted and
+MACELES-derived binaries has not been confirmed. NeurIPS review confidentiality
+does not replace upstream permission. See [`MODEL_ACCESS.md`](MODEL_ACCESS.md)
+for the exact reproducibility boundary and the condition for adding them.
 
 Train one adaptation (repeat with seeds 17, 29, and 43 where required):
 
@@ -109,7 +111,7 @@ data/           full molecular splits, compact paper data, and one liquid frame
 environment/    pinned analysis and production dependencies
 figures/        regenerated paper and supplementary figures
 licenses/       upstream model/code notices
-models/         checkpoint manifest; binary checkpoints are review-only
+models/         checkpoint manifest; binary checkpoints are not distributed
 production/     training, NPT, NPT analysis, and restart-safe NVT entry points
 tools/          artifact validation
 ```

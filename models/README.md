@@ -18,8 +18,12 @@ optimizer update for each file. Verify before production:
 sha256sum models/*.model
 ```
 
-The combined binaries are over 100 MB and carry upstream academic/non-
-commercial terms. They therefore belong in a separately permissioned reviewer
-bundle, not the public workshop code ZIP. Baseline files are the released
-foundations; G1-G2/G1-G6 files are fused deployment exports with no remaining
-LoRA tensors.
+The six uncompressed files total more than 100 MB, although ZIP compression can
+bring a combined artifact below that limit. Size is therefore not the reason
+for omission. The binaries are excluded because redistribution authorization
+for the adapted and MACELES-derived checkpoints has not been confirmed. Do not
+add them to a public or confidential submission merely because it is technically
+possible; add them only after obtaining explicit permission consistent with all
+upstream terms. Baseline files are the released foundations; G1-G2/G1-G6 files
+are fused deployment exports with no remaining LoRA tensors. See
+`../MODEL_ACCESS.md`.

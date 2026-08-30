@@ -84,6 +84,7 @@ def validate_tables() -> None:
 def validate_layout() -> None:
     required = (
         "README.md", "RESULTS.md", "FIGURES.md", "DATA_CARD.md", "REPRODUCIBILITY.md",
+        "MODEL_ACCESS.md",
         "configs/study.yaml", "models/manifest.json", "production/train.py",
         "production/run_npt.py", "production/analyze_npt.py", "production/run_nvt.py",
         "analysis/build_paper_figures.py", "analysis/build_paper_tables.py",

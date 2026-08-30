@@ -9,5 +9,8 @@
   `licenses/LES_CC_BY_NC_4.0_NOTICE.md`.
 
 The six binary checkpoints are not relicensed by this repository and are not
-included in the public workshop ZIP. Reviewers who receive them separately
-should verify `models/manifest.json` before use.
+included in the workshop ZIP. Confidential peer review is still distribution;
+the archive therefore omits them unless the submitter has explicit authority
+consistent with every upstream term. If an authorized bundle is prepared,
+recipients should verify `models/manifest.json` before use. See
+`MODEL_ACCESS.md` for the resulting reproducibility boundary.
