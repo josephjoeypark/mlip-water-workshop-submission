@@ -1,0 +1,11 @@
+{
+  "python": "3.12.11",
+  "torch": "2.7.1+cu128",
+  "mace_commit": "58ab604e77340094043662376fba43cb102f986f",
+  "les_commit": "c8063fad18e3d59cb4d783e0ed5a1efea8d55b8d",
+  "notes": [
+    "Install the CUDA-specific PyTorch build using the target platform instructions.",
+    "Install MACE and LES from the pinned commits for checkpoint and BEC reproduction.",
+    "The analysis-only figures and tables do not require MACE, LES, PyTorch, or a GPU."
+  ]
+}

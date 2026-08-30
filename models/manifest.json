@@ -1,0 +1,13 @@
+{
+  "schema_version": "six-model-workshop-manifest-v1",
+  "distributed_in_repository": false,
+  "models": [
+    {"id":"maceoff23m-baseline","display_name":"MACEOFF23(M) / Baseline","path":"models/maceoff23m-baseline.model","sha256":"4842c52ad210d6e1f84d6cf1ffa70fae25a7e0d755ed55cf223f43913f587db7","parameters":1428368,"training_seed":null,"optimizer_updates":null,"legacy_label":"OFF-ZS"},
+    {"id":"maceoff23m-g1-g2","display_name":"MACEOFF23(M) / G1-G2","path":"models/maceoff23m-g1-g2.model","sha256":"dc5d13d63eb7917df59188a0df1b1b29cf1fba89ae5a99450309bb68fb6ad659","parameters":1428376,"training_seed":17,"optimizer_updates":123200,"legacy_label":"OFF-T12-B123200"},
+    {"id":"maceoff23m-g1-g6","display_name":"MACEOFF23(M) / G1-G6","path":"models/maceoff23m-g1-g6.model","sha256":"277d4e1510ef618d7cfa573b285cf81ef9b673170be711848d661e884e29c84f","parameters":1428368,"training_seed":17,"optimizer_updates":123200,"legacy_label":"OFF-D00-B123200"},
+    {"id":"maceles-off-baseline","display_name":"MACELES-OFF / Baseline","path":"models/maceles-off-baseline.model","sha256":"44c0f363dd577eafc0912341f44e658fcf5d58d02b88da8682562d654889cf80","parameters":1891360,"training_seed":null,"optimizer_updates":null,"legacy_label":"LES-ZS"},
+    {"id":"maceles-off-g1-g2","display_name":"MACELES-OFF / G1-G2","path":"models/maceles-off-g1-g2.model","sha256":"4eced609dada4a0a6a266140477899c40b95a8f4ee3819044669f66b788fdc4d","parameters":1891368,"training_seed":17,"optimizer_updates":123200,"legacy_label":"LES-T12-B123200"},
+    {"id":"maceles-off-g1-g6","display_name":"MACELES-OFF / G1-G6","path":"models/maceles-off-g1-g6.model","sha256":"d0b58f57440dfbb7c946e7b18252eb44dd349cf016237eddd1885ff8ab9e1bb2","parameters":1891360,"training_seed":17,"optimizer_updates":123200,"legacy_label":"LES-D00-B123200"}
+  ]
+}
+

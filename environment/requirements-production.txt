@@ -1,0 +1,4 @@
+-r requirements-analysis.txt
+torch==2.7.1
+mace-torch @ git+https://github.com/ACEsuit/mace.git@58ab604e77340094043662376fba43cb102f986f
+les @ git+https://github.com/ChengUCB/les.git@c8063fad18e3d59cb4d783e0ed5a1efea8d55b8d

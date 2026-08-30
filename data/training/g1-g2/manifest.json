@@ -1,0 +1,2 @@
+{"schema_version":"g1-g2-training-data-v1","target_method":"wB97M-V/def2-TZVPD","passed":true,"products":{"train":{"path":"train.extxyz","parents":800,"records":5600,"sha256":"31c5ea58dc32d61fecf5bb0332dc75816a704e8f44f4b60880a268ff8aed6353"},"valid":{"path":"valid.extxyz","parents":100,"records":700,"sha256":"82e006ac77a51ee29e0fca918c37621b5d352f416d9e507606210ac0d8e3ee78"},"test":{"path":"test.extxyz","parents":100,"records":700,"sha256":"e591acf78b747f54b3059b1877e9fcd7570271cf923f3c2128f586266faebcb6"}}}
+

@@ -1,0 +1,30 @@
+system:
+  water_molecules: 64
+  flexible: true
+  masses: physical
+  bond_constraints: false
+  periodic: true
+  initial_cell_edge_A: 12.415238
+states:
+  temperature_K: [275, 295, 315, 336]
+  pressure_bar: 1.01325
+  paired_replicas: 3
+dynamics:
+  engine: ASE_3.29.0
+  integrator: IsotropicMTKNPT
+  timestep_fs: 1.0
+  duration_ps: 1000
+  preparation_thermostat_time_fs: 10
+  production_thermostat_damping_fs: 50
+  production_barostat_damping_fs: 500
+  thermostat_chain_length: 5
+  barostat_chain_length: 5
+  integration_substeps: 2
+  cell_motion: isotropic
+storage:
+  thermodynamic_interval_fs: 10
+  coordinate_interval_fs: 100
+analysis:
+  density_window_ps: [500, 1000]
+  rdf_window_ps: [500, 1000]
+  rdf: intermolecular_OO_and_OH_with_covalent_OH_excluded

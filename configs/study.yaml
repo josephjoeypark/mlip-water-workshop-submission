@@ -1,0 +1,36 @@
+schema_version: water-deployment-workshop-v1
+paths: {implementation: ../production/internal, output: ../runs}
+models:
+  maceoff23m-baseline: {foundation: "MACEOFF23(M)", condition: Baseline, kind: OFF, path: ../models/maceoff23m-baseline.model, sha256: "4842c52ad210d6e1f84d6cf1ffa70fae25a7e0d755ed55cf223f43913f587db7", stored_precision: float64}
+  maceoff23m-g1-g2: {foundation: "MACEOFF23(M)", condition: G1-G2, kind: OFF, path: ../models/maceoff23m-g1-g2.model, sha256: "dc5d13d63eb7917df59188a0df1b1b29cf1fba89ae5a99450309bb68fb6ad659", stored_precision: float64}
+  maceoff23m-g1-g6: {foundation: "MACEOFF23(M)", condition: G1-G6, kind: OFF, path: ../models/maceoff23m-g1-g6.model, sha256: "277d4e1510ef618d7cfa573b285cf81ef9b673170be711848d661e884e29c84f", stored_precision: float64}
+  maceles-off-baseline: {foundation: MACELES-OFF, condition: Baseline, kind: LES, path: ../models/maceles-off-baseline.model, sha256: "44c0f363dd577eafc0912341f44e658fcf5d58d02b88da8682562d654889cf80", stored_precision: float32}
+  maceles-off-g1-g2: {foundation: MACELES-OFF, condition: G1-G2, kind: LES, path: ../models/maceles-off-g1-g2.model, sha256: "4eced609dada4a0a6a266140477899c40b95a8f4ee3819044669f66b788fdc4d", stored_precision: float64}
+  maceles-off-g1-g6: {foundation: MACELES-OFF, condition: G1-G6, kind: LES, path: ../models/maceles-off-g1-g6.model, sha256: "d0b58f57440dfbb7c946e7b18252eb44dd349cf016237eddd1885ff8ab9e1bb2", stored_precision: float64}
+training:
+  seed: 17
+  seeds_reported: [17, 29, 43]
+  device: cuda
+  reported_update: 123200
+  foundation_model: {maceoff23m: maceoff23m-baseline, maceles-off: maceles-off-baseline}
+  g1-g2:
+    train: ../data/training/g1-g2/train.extxyz
+    valid: ../data/training/g1-g2/valid.extxyz
+    test: ../data/training/g1-g2/test.extxyz
+    evaluation: ../data/training/g1-g6/valid.extxyz
+    epochs_to_update_123200: 44
+    reported_epoch_index: 43
+  g1-g6:
+    train: ../data/training/g1-g6/train.jsonl
+    valid: ../data/training/g1-g6/valid.jsonl
+    test: ../data/training/g1-g6/test.jsonl
+    source_manifest: ../data/training/g1-g6/manifest.json
+    evaluation: ../data/training/g1-g6/valid.extxyz
+md:
+  input: ../data/response/liquid-64.xyz
+  input_sha256: "f8907fc0efd2f528bcffe7ad822b26d7a681d71eb99f7c9ffd2fc143fb7ea1d3"
+  temperatures_K: [275, 295, 315, 336]
+  replicas: 3
+  pressure_bar: 1.01325
+  npt: {timestep_fs: 1.0, preparation_ps: 5.0, production_ps: 1000.0, analysis_start_ps: 500.0, thermostat_time_fs: 10.0, thermostat_damping_fs: 50.0, barostat_damping_fs: 500.0, thermo_every_steps: 10, trajectory_every_steps: 100}
+  nvt: {timestep_fs: 0.5, equilibration_ps: 0.0, production_segments_ps: [500.0, 100.0, 100.0, 100.0, 100.0, 100.0], thermostat_time_fs: 10.0, position_every_steps: 100, velocity_every_steps: 1, stress_every_steps: 1, thermo_every_steps: 1000}

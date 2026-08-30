@@ -1,0 +1,19 @@
+target_method: wB97M-V/def2-TZVPD
+parent_structures: 1000
+split:
+  unit: parent_structure
+  train: 800
+  validation: 100
+  test: 100
+  leakage_control: all children from one parent remain in one split
+groups:
+  G1: {waters: 1, children_per_parent: 6}
+  G2: {waters: 2, children_per_parent: 1}
+  G3: {waters: 3, children_per_parent: 1}
+  G4: {waters: 4, children_per_parent: 1}
+  G5: {waters: 5, children_per_parent: 1}
+  G6: {waters: 6, children_per_parent: 1}
+conditions:
+  G1-G2: {groups: [G1, G2], records: {train: 5600, validation: 700, test: 700}}
+  G1-G6: {groups: [G1, G2, G3, G4, G5, G6], records: {train: 8800, validation: 1100, test: 1100}}
+reporting: {figure1_split: validation, locked_test_used_for_figure1: false}

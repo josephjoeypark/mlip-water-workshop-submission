@@ -1,0 +1,14 @@
+foundations: ["MACEOFF23(M)", MACELES-OFF]
+conditions: [Baseline, G1-G2, G1-G6]
+display_order:
+  - MACEOFF23(M) / Baseline
+  - MACEOFF23(M) / G1-G2
+  - MACEOFF23(M) / G1-G6
+  - MACELES-OFF / Baseline
+  - MACELES-OFF / G1-G2
+  - MACELES-OFF / G1-G6
+interpretation:
+  Baseline: released foundation with no adaptation in this study
+  G1-G2: rank-32 LoRA adaptation using monomers and dimers
+  G1-G6: rank-32 LoRA adaptation using monomers through hexamers
+

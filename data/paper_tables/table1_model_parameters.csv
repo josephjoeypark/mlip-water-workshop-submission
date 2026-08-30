@@ -1,0 +1,3 @@
+model,canonical_base_or_g1_g6_fused_parameters,g1_g2_fused_export_parameters,mace_lora_parameters,les_lora_parameters,total_lora_parameters,total_during_lora_training,trainable_fraction_percent
+MACEOFF23(M),1428368,1428376,235392,0,235392,1663760,14.15
+MACELES-OFF,1891360,1891368,235392,117824,353216,2244576,15.74

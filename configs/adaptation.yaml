@@ -1,0 +1,23 @@
+method: equivariance-preserving_irrep-aware_LoRA
+rank: 32
+alpha: 32
+base_weights: frozen
+seeds: [17, 29, 43]
+deployed_seed: 17
+reported_checkpoint: {type: exponential_moving_average, optimizer_updates: 123200}
+optimization:
+  precision: float64
+  batch_size: 2
+  optimizer: AdamW_AMSGrad
+  learning_rate: 5.0e-4
+  weight_decay: 1.0e-8
+  gradient_norm_clip: 10
+  ema_decay: 0.995
+loss: {per_atom_energy_mse_weight: 1, cartesian_force_component_mse_weight: 100}
+conditions:
+  G1-G2: {groups: [G1, G2], implementation: official_MACE_LoRA}
+  G1-G6: {groups: [G1, G2, G3, G4, G5, G6], implementation: fixed_learning_rate_continuation}
+trainable_parameters:
+  MACEOFF23(M): {mace_adapter: 235392, les_adapter: 0, total: 235392}
+  MACELES-OFF: {mace_adapter: 235392, les_adapter: 117824, total: 353216}
+
