@@ -30,9 +30,7 @@ bash reproduce.sh
 ```
 
 This regenerates Tables 1--2, Figures 1--3, the density--viscosity product,
-and the correlation-grid sensitivity outputs. Compact CSV/NPZ inputs are
-committed under [`data/paper_figures`](data/paper_figures/), and the generated
-files are written to [`figures`](figures/). See [`FIGURES.md`](FIGURES.md) and
+and the correlation-grid sensitivity outputs. Compact inputs are organized with their workflows under [`model_training/data`](model_training/data/) and [`md_simulations/data`](md_simulations/data/); generated files are written to [`paper/figures`](paper/figures/). See [`FIGURES.md`](FIGURES.md) and
 [`RESULTS.md`](RESULTS.md) for captions and interpretation.
 
 ## Run the full pipeline
@@ -54,47 +52,45 @@ for the exact reproducibility boundary and the condition for adding them.
 Train one adaptation (repeat with seeds 17, 29, and 43 where required):
 
 ```bash
-python production/train.py --foundation maceoff23m --condition g1-g2 --seed 17
-python production/train.py --foundation maceoff23m --condition g1-g6 --seed 17
-python production/train.py --foundation maceles-off --condition g1-g2 --seed 17
-python production/train.py --foundation maceles-off --condition g1-g6 --seed 17
+python model_training/train.py --foundation maceoff23m --condition g1-g2 --seed 17
+python model_training/train.py --foundation maceoff23m --condition g1-g6 --seed 17
+python model_training/train.py --foundation maceles-off --condition g1-g2 --seed 17
+python model_training/train.py --foundation maceles-off --condition g1-g6 --seed 17
 ```
 
 Run one of the 72 model/temperature/replica lanes:
 
 ```bash
-python production/run_npt.py --model maceles-off-g1-g6 --temperature 295 --replica 1
-python production/analyze_npt.py --model maceles-off-g1-g6 --temperature 295 --replica 1
-python production/run_nvt.py --model maceles-off-g1-g6 --temperature 295 --replica 1
+python md_simulations/run_npt.py --model maceles-off-g1-g6 --temperature 295 --replica 1
+python md_simulations/analysis/density_rdf.py --model maceles-off-g1-g6 --temperature 295 --replica 1
+python md_simulations/run_nvt.py --model maceles-off-g1-g6 --temperature 295 --replica 1
 ```
 
-For scheduler arrays, `python production/run_campaign.py npt --lane-index N`
+For scheduler arrays, `python md_simulations/run_campaign.py npt --lane-index N`
 prints lane `N` (`0 <= N < 72`); add `--execute` inside the allocated job. Use
 the same interface with `analyze-npt` and `nvt`.
 
 The NPT protocol is 1 ns at 1.01325 bar with a 1 fs step; density and RDF use
-the final 500 ps. NVT is 1 ns at fixed volume with a 0.5 fs step and native
+the final 500 ps. NVT is 700 ps at fixed volume with a 0.5 fs step and native
 0.5 fs velocity/stress recording. After all lanes complete:
 
 ```bash
-python analysis/aggregate_npt.py
-python analysis/transport.py --prefix-ps 1000
-python analysis/package_transport.py --analysis runs/transport --output runs/figure3_inputs
+python md_simulations/analysis/aggregate_density_rdf.py
+python md_simulations/analysis/diffusion_and_viscosity.py --prefix-ps 700
+python md_simulations/analysis/package_transport.py --analysis runs/transport --output runs/figure3_inputs
 ```
 
-The frozen Figure 3 values use the common 700 ps prefix available for every
-lane at the manuscript snapshot. The runner and endpoint analysis are set to
-the planned 1 ns protocol; regenerating from 1 ns trajectories can therefore
-change Figure 3 values and must be reported as a new analysis version.
+The Figure 3 values use the complete 700 ps NVT trajectory for every lane.
+The runner and endpoint analysis now match that frozen manuscript protocol.
 
 Extract LES latent charges and Born effective charge tensors from frame 0:
 
 ```bash
-python analysis/extract_les_latent_charges.py \
-  --input data/response/liquid-64.xyz --models-dir models \
+python model_training/analysis/extract_latent_charges.py \
+  --input model_training/data/bec_frame0/liquid-64.xyz --models-dir models \
   --output runs/les_latent_charges.csv
-python analysis/extract_les_bec.py \
-  --input data/response/liquid-64.xyz --models-dir models \
+python model_training/analysis/evaluate_bec.py \
+  --input model_training/data/bec_frame0/liquid-64.xyz --models-dir models \
   --output runs/les_bec.csv
 ```
 
@@ -105,15 +101,14 @@ comparison with the conventional water sign.
 ## Repository map
 
 ```text
-analysis/       short public entry points and the audited transport estimator
-configs/        one study manifest plus MD/training settings
-data/           full molecular splits, compact paper data, and one liquid frame
-environment/    pinned analysis and production dependencies
-figures/        regenerated paper and supplementary figures
-licenses/       upstream model/code notices
-models/         checkpoint manifest; binary checkpoints are not distributed
-production/     training, NPT, NPT analysis, and restart-safe NVT entry points
-tools/          artifact validation
+model_training/  1,000-parent data, training, force/energy, and BEC analysis
+md_simulations/  64-water input, NPT/NVT runners, RDF, density, diffusion, viscosity
+paper/           table/figure builders and regenerated paper outputs
+configs/         one cross-workflow study manifest
+environment/     pinned analysis and production dependencies
+licenses/        upstream model/code notices
+models/          checkpoint manifest; binary checkpoints are not distributed
+tools/           artifact validation
 ```
 
 Exact provenance, internal-label mapping, data boundaries, and clean-room

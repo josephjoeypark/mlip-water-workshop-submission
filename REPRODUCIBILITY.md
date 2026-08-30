@@ -18,11 +18,12 @@ Re-running checkpoint-dependent evaluation, forces, response tensors, or MD
 requires the files listed in `models/manifest.json`; retraining an adaptation
 requires its corresponding released foundation. They are omitted pending
 explicit redistribution authorization, as documented in `MODEL_ACCESS.md`.
-Raw NPT/NVT trajectories are also not included: 72 one-nanosecond lanes with
-native 0.5 fs velocity and stress records are too large for a code supplement.
+Raw trajectories are also not included: the 72 one-nanosecond NPT lanes and
+72 700 ps NVT lanes with native 0.5 fs velocity and stress records are too
+large for a code supplement.
 The exact generation and analysis programs are included, so authorized
 checkpoints can recreate those trajectories from
-`data/response/liquid-64.xyz`.
+`md_simulations/data/initial_configuration/liquid-64.xyz`.
 
 This boundary is intentional and testable:
 
@@ -30,8 +31,7 @@ This boundary is intentional and testable:
 2. every unavailable model is named and checksum-identified;
 3. every production command has a `--dry-run` path;
 4. all expensive-stage settings live in `configs/study.yaml`;
-5. a 700 ps frozen snapshot and a newly completed 1 ns analysis must not be
-   silently mixed.
+5. NVT analysis must use exactly the configured 700 ps endpoint.
 
 ## Numerical definitions
 
@@ -39,7 +39,7 @@ This boundary is intentional and testable:
   training seeds; adapted checkpoints at update 123,200.
 - Figure 2: three NPT replicas; density/RDF statistics over 500--1,000 ps.
 - Figure 3: three NVT replicas; native 0.5 fs records; 5--10 ps running-integral
-  window; common 700 ps manuscript prefix.
+  window; complete 700 ps trajectory.
 - Corrected diffusion: lane-wise Yeh--Hummer correction using the same lane's
   viscosity and box length.
 - Table 2: population SD across atoms in one frame, not uncertainty over
@@ -47,7 +47,7 @@ This boundary is intentional and testable:
 
 After re-running all three training seeds, pass their `evaluation.csv` files
 plus one baseline evaluation for each foundation to
-`analysis/aggregate_cluster_evaluations.py`. That command regenerates the
+`model_training/analysis/aggregate_force_energy.py`. That command regenerates the
 mean/SD and deployed-seed CSVs consumed by Figure 1.
 
 ## Clean-room command

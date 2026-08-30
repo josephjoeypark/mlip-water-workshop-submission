@@ -1,5 +1,5 @@
 schema_version: water-deployment-workshop-v1
-paths: {implementation: ../production/internal, output: ../runs}
+paths: {training_implementation: ../model_training/internal, md_implementation: ../md_simulations/internal, output: ../runs}
 models:
   maceoff23m-baseline: {foundation: "MACEOFF23(M)", condition: Baseline, kind: OFF, path: ../models/maceoff23m-baseline.model, sha256: "4842c52ad210d6e1f84d6cf1ffa70fae25a7e0d755ed55cf223f43913f587db7", stored_precision: float64}
   maceoff23m-g1-g2: {foundation: "MACEOFF23(M)", condition: G1-G2, kind: OFF, path: ../models/maceoff23m-g1-g2.model, sha256: "dc5d13d63eb7917df59188a0df1b1b29cf1fba89ae5a99450309bb68fb6ad659", stored_precision: float64}
@@ -14,23 +14,23 @@ training:
   reported_update: 123200
   foundation_model: {maceoff23m: maceoff23m-baseline, maceles-off: maceles-off-baseline}
   g1-g2:
-    train: ../data/training/g1-g2/train.extxyz
-    valid: ../data/training/g1-g2/valid.extxyz
-    test: ../data/training/g1-g2/test.extxyz
-    evaluation: ../data/training/g1-g6/valid.extxyz
+    train: ../model_training/data/molecular_clusters_1000/g1-g2/train.extxyz
+    valid: ../model_training/data/molecular_clusters_1000/g1-g2/valid.extxyz
+    test: ../model_training/data/molecular_clusters_1000/g1-g2/test.extxyz
+    evaluation: ../model_training/data/molecular_clusters_1000/g1-g6/valid.extxyz
     epochs_to_update_123200: 44
     reported_epoch_index: 43
   g1-g6:
-    train: ../data/training/g1-g6/train.jsonl
-    valid: ../data/training/g1-g6/valid.jsonl
-    test: ../data/training/g1-g6/test.jsonl
-    source_manifest: ../data/training/g1-g6/manifest.json
-    evaluation: ../data/training/g1-g6/valid.extxyz
+    train: ../model_training/data/molecular_clusters_1000/g1-g6/train.jsonl
+    valid: ../model_training/data/molecular_clusters_1000/g1-g6/valid.jsonl
+    test: ../model_training/data/molecular_clusters_1000/g1-g6/test.jsonl
+    source_manifest: ../model_training/data/molecular_clusters_1000/g1-g6/manifest.json
+    evaluation: ../model_training/data/molecular_clusters_1000/g1-g6/valid.extxyz
 md:
-  input: ../data/response/liquid-64.xyz
-  input_sha256: "f8907fc0efd2f528bcffe7ad822b26d7a681d71eb99f7c9ffd2fc143fb7ea1d3"
+  input: ../md_simulations/data/initial_configuration/liquid-64.xyz
+  input_sha256: "347fcf41584ca834d1bdb1acc622a9ad9329091ec1d033e423dc29c6ef03ab69"
   temperatures_K: [275, 295, 315, 336]
   replicas: 3
   pressure_bar: 1.01325
   npt: {timestep_fs: 1.0, preparation_ps: 5.0, production_ps: 1000.0, analysis_start_ps: 500.0, thermostat_time_fs: 10.0, thermostat_damping_fs: 50.0, barostat_damping_fs: 500.0, thermo_every_steps: 10, trajectory_every_steps: 100}
-  nvt: {timestep_fs: 0.5, equilibration_ps: 0.0, production_segments_ps: [500.0, 100.0, 100.0, 100.0, 100.0, 100.0], thermostat_time_fs: 10.0, position_every_steps: 100, velocity_every_steps: 1, stress_every_steps: 1, thermo_every_steps: 1000}
+  nvt: {timestep_fs: 0.5, equilibration_ps: 0.0, production_segments_ps: [500.0, 100.0, 100.0], thermostat_time_fs: 10.0, position_every_steps: 100, velocity_every_steps: 1, stress_every_steps: 1, thermo_every_steps: 1000}

@@ -14,18 +14,21 @@ crossing partitions.
 
 The larger record totals are deterministic cluster expansions, not additional
 independent parents. File-level hashes and counts are stored beside each split
-in `data/training/*/manifest.json`. Figure 1 uses the validation parents; the
+in `model_training/data/molecular_clusters_1000/*/manifest.json`. Figure 1 uses the validation parents; the
 locked test parents were not used for plotted model selection.
 
 ## Liquid and paper data
 
-- `data/response/liquid-64.xyz`: one periodic 64-water configuration used as
-  the production starting structure and one-frame response example.
-- `data/response/les_latent_charges_64water_frame0.csv`: raw latent outputs;
+- `md_simulations/data/initial_configuration/liquid-64.xyz`: the exact cited
+  upstream 64-water configuration used to initialize MD; see its `SOURCE.md`.
+- `model_training/data/bec_frame0/liquid-64.xyz`: the same frame used for
+  one-frame response evaluation.
+- `model_training/data/bec_frame0/les_latent_charges_64water_frame0.csv`: raw latent outputs;
   these are not calibrated partial charges.
-- `data/response/les_bec_64water_frame0.csv`: raw 3x3 atom-wise BEC tensors.
-- `data/paper_figures`: compact state summaries and plotted curves.
-- `data/paper_tables`: manuscript table values generated from source data.
+- `model_training/data/bec_frame0/les_bec_64water_frame0.csv`: raw 3x3 atom-wise BEC tensors.
+- `md_simulations/data/published_results`: compact state summaries and plotted curves.
+- `model_training/data/model_parameters.csv` and
+  `model_training/data/bec_frame0/bec_comparison.csv`: manuscript tables.
 
 External experimental/reference curves retain their citations in `RESULTS.md`
 and `FIGURES.md`. The compact tables report SD or SEM explicitly in column

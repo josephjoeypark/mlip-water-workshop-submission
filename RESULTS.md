@@ -40,7 +40,7 @@ fused exports contain eight additional non-LoRA scalar parameters
 (1,428,376 for MACEOFF23(M) / G1-G2 and 1,891,368 for MACELES-OFF / G1-G2); G1-G6 and Baseline match the
 canonical counts in Table 1. Fusion removes all separate `lora_A` and `lora_B`
 tensors from the deployment checkpoints. Machine-readable values are in
-[`table1_model_parameters.csv`](data/paper_tables/table1_model_parameters.csv).
+[`table1_model_parameters.csv`](model_training/data/model_parameters.csv).
 
 ## Molecular transfer across aggregation order
 
@@ -109,8 +109,8 @@ treatment, and direct comparison with matched electronic-structure BEC labels.
 The reference values are from
 [Kretschmer et al.](https://arxiv.org/abs/2607.22903); machine-readable values
 and the unmodified tensors are in
-[`table2_bec_comparison.csv`](data/paper_tables/table2_bec_comparison.csv)
-and [`les_bec_64water_frame0.csv`](data/response/les_bec_64water_frame0.csv).
+[`table2_bec_comparison.csv`](model_training/data/bec_frame0/bec_comparison.csv)
+and [`les_bec_64water_frame0.csv`](model_training/data/bec_frame0/les_bec_64water_frame0.csv).
 
 ## Transfer to equilibrium density and local structure
 
@@ -143,11 +143,10 @@ origins.
 
 ## Dynamics and collective relaxation
 
-For transport, each selected NPT state initializes a 1 ns fixed-volume
+For transport, each selected NPT state initializes a 700 ps fixed-volume
 Nose--Hoover trajectory with a 0.5 fs integration step and native 0.5 fs
-oxygen-velocity and five-channel traceless-stress records. The current Figure 3
-uses the common first 700 ps across all six models and four temperatures, not the
-full nominal 1 ns. VACF diffusion and Green--Kubo viscosity are reported as the
+oxygen-velocity and five-channel traceless-stress records. Figure 3 uses the
+complete 700 ps trajectory across all six models and four temperatures. VACF diffusion and Green--Kubo viscosity are reported as the
 mean running integral over 5--10 ps; state uncertainties are SEM across the
 three paired replicas. Corrected diffusion uses the lane-wise Yeh--Hummer term,
 

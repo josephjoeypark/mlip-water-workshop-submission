@@ -48,7 +48,7 @@ def rows(path: Path) -> list[dict[str, str]]:
 
 def validate_training() -> None:
     for lane in ("g1-g2", "g1-g6"):
-        directory = ROOT / "data/training" / lane
+        directory = ROOT / "model_training/data/molecular_clusters_1000" / lane
         manifest = json.loads((directory / "manifest.json").read_text())
         for item in manifest["products"].values():
             path = directory / item["path"]
@@ -59,37 +59,45 @@ def validate_training() -> None:
 
 
 def validate_tables() -> None:
-    figure1 = rows(ROOT / "data/paper_figures/figure1_seed17.csv")
+    figure1 = rows(ROOT / "model_training/data/force_energy_seed17.csv")
     assert {row["model_label"] for row in figure1} == MODELS
     assert {row["backbone"] for row in figure1} == FOUNDATIONS
     assert {row["condition"] for row in figure1} == CONDITIONS
     adapted = [row for row in figure1 if row["condition"] != "Baseline"]
     assert {int(float(row["optimizer_updates"])) for row in adapted} == {123200}
 
-    density = rows(ROOT / "data/paper_figures/figure2_density_states.csv")
-    transport = rows(ROOT / "data/paper_figures/figure3_transport_states_0p5fs.csv")
+    density = rows(ROOT / "md_simulations/data/published_results/density.csv")
+    transport = rows(ROOT / "md_simulations/data/published_results/transport_0p5fs.csv")
     assert {row["model"] for row in density} == MODELS and len(density) == 24
     assert {row["model_label"] for row in transport} == MODELS and len(transport) == 24
     assert {float(row["analyzed_min_ps"]) for row in transport} == {700.0}
 
-    bec = rows(ROOT / "data/response/les_bec_64water_frame0.csv")
+    bec = rows(ROOT / "model_training/data/bec_frame0/les_bec_64water_frame0.csv")
     les_models = {f"MACELES-OFF / {condition}" for condition in CONDITIONS}
     assert len(bec) == 576 and {row["model"] for row in bec} == les_models
     assert sum(row["element"] == "H" for row in bec) == 384
     assert sum(row["element"] == "O" for row in bec) == 192
-    table2 = rows(ROOT / "data/paper_tables/table2_bec_comparison.csv")
+    table2 = rows(ROOT / "model_training/data/bec_frame0/bec_comparison.csv")
     assert len(table2) == 4 and {row["source_or_model"] for row in table2[1:]} == les_models
+    upstream_hash = "347fcf41584ca834d1bdb1acc622a9ad9329091ec1d033e423dc29c6ef03ab69"
+    md_frame = ROOT / "md_simulations/data/initial_configuration/liquid-64.xyz"
+    bec_frame = ROOT / "model_training/data/bec_frame0/liquid-64.xyz"
+    assert sha256(md_frame) == upstream_hash, "64-water source hash"
+    assert sha256(bec_frame) == upstream_hash, "BEC frame hash"
+    assert md_frame.read_bytes() == bec_frame.read_bytes(), "MD and BEC frames differ"
 
 
 def validate_layout() -> None:
     required = (
         "README.md", "RESULTS.md", "FIGURES.md", "DATA_CARD.md", "REPRODUCIBILITY.md",
         "MODEL_ACCESS.md",
-        "configs/study.yaml", "models/manifest.json", "production/train.py",
-        "production/run_npt.py", "production/analyze_npt.py", "production/run_nvt.py",
-        "analysis/build_paper_figures.py", "analysis/build_paper_tables.py",
-        "figures/figure1_molecular_transfer.pdf", "figures/figure2_equilibrium_structure.pdf",
-        "figures/figure3_transport_relaxation.pdf",
+        "configs/study.yaml", "models/manifest.json", "model_training/train.py",
+        "md_simulations/run_npt.py", "md_simulations/analysis/density_rdf.py", "md_simulations/run_nvt.py",
+        "md_simulations/analysis/diffusion.py", "md_simulations/analysis/viscosity.py",
+        "md_simulations/data/initial_configuration/SOURCE.md",
+        "paper/build_figures.py", "paper/build_tables.py",
+        "paper/figures/figure1_molecular_transfer.pdf", "paper/figures/figure2_equilibrium_structure.pdf",
+        "paper/figures/figure3_transport_relaxation.pdf",
     )
     for name in required:
         path = ROOT / name

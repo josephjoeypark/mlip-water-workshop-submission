@@ -1,0 +1,31 @@
+initialization:
+  source: NPT_frame_closest_to_lane_mean_500_1000ps_volume
+  preserve_positions: true
+  preserve_momenta: true
+  separate_discarded_NVT_interval: false
+states:
+  temperature_K: [275, 295, 315, 336]
+  paired_replicas: 3
+dynamics:
+  ensemble: fixed_volume_NVT
+  thermostat: Nose-Hoover
+  thermostat_time_fs: 10
+  timestep_fs: 0.5
+  duration_ps: 700
+  common_analysis_duration_ps: 700
+storage:
+  oxygen_velocity_interval_fs: 0.5
+  stress_interval_fs: 0.5
+  oxygen_position_interval_fs: 50
+  stress_includes_kinetic_and_virial: true
+analysis:
+  primary_correlation_grid_fs: 0.5
+  sensitivity_correlation_grids_fs: [1, 2, 5]
+  VACF_integral_window_ps: [5, 10]
+  MSD_fit_window_ps: [10, 600]
+  viscosity_integral_window_ps: [5, 10]
+  viscosity_sensitivity_window_ps: [10, 20]
+  stress_channels: [Pxy, Pxz, Pyz, half_Pxx_minus_Pyy, half_Pyy_minus_Pzz]
+  finite_size_correction: Yeh-Hummer
+  yeh_hummer_xi: 2.837297
+  scalar_pressure_note: stored_separately_every_0.5_ps_not_used_for_shear_viscosity

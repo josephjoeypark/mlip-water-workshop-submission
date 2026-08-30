@@ -3,6 +3,8 @@
   "torch": "2.7.1+cu128",
   "mace_commit": "58ab604e77340094043662376fba43cb102f986f",
   "les_commit": "c8063fad18e3d59cb4d783e0ed5a1efea8d55b8d",
+  "cacefit_source_commit": "c3ae70066ec86f5f6a51a7146c895dfd0661a013",
+  "les_fit_npt_source_commit": "a886785caa4182a0effb95d95f0e402881adfc4d",
   "notes": [
     "Install the CUDA-specific PyTorch build using the target platform instructions.",
     "Install MACE and LES from the pinned commits for checkpoint and BEC reproduction.",
