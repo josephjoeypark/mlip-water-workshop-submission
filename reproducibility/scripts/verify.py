@@ -90,6 +90,15 @@ def validate_inputs():
         np.testing.assert_allclose(frame.yeh_hummer_nm2_ns, shift, rtol=1e-12, atol=1e-12)
         np.testing.assert_allclose(frame.diffusion_vacf_corrected_nm2_ns, frame.diffusion_vacf_pbc_nm2_ns + shift, rtol=1e-12, atol=1e-12)
     np.testing.assert_array_equal(complete.model_sha256, configured.model_sha256)
+    from aggregate_rdf import aggregate_rdf
+    rdf_replicas = pd.read_csv(FROZEN / 'data/rdf_295K_per_replica.csv')
+    require(rdf_replicas.lane_id.nunique() == 42 and len(rdf_replicas) == 12600, 'RDF replica coverage')
+    identities = rdf_replicas.drop_duplicates('lane_id').set_index('lane_id')
+    expected_identities = configured[configured.temperature_K == 295].set_index('lane_id')
+    for key in ['backbone','condition','training_seed','temperature_K','md_replica']:
+        pd.testing.assert_series_equal(identities[key].sort_index(), expected_identities[key].sort_index(), check_dtype=False)
+    rdf, rdf_seeds = aggregate_rdf(rdf_replicas)
+    pd.testing.assert_frame_equal(rdf, pd.read_csv(FROZEN / 'data/rdf_295K.csv'), check_dtype=False, rtol=1e-10, atol=1e-12)
     molecular = pd.read_csv(FROZEN / 'data/cluster_rmse_all_seeds.csv')
     fitted = molecular[molecular.training_seed.notna()]
     require(set(fitted.training_seed) == {17, 29, 43}, 'Molecular training-seed coverage')
@@ -107,14 +116,14 @@ def validate_inputs():
     return dict(passed=True, checksummed_files=count, trajectories=168, model_identities=14,
                 model_temperature_states=24, seed_temperature_states=56,
                 analyzed_windows=4, finite_size_correction_checks=672,
-                curve_files=336, historical_les_excluded=True,
+                curve_files=336, rdf_replicas=42, rdf_model_seed_groups=14, historical_les_excluded=True,
                 scope='Compact released data, identities, coverage, hashes, and lane-wise correction; no raw MD restart or native-curve integration was rerun.')
 
 
 def compare_rebuild(output):
     compared = []
     # These independent frozen tables catch aggregation or estimator changes.
-    for name in ('model_summary_2ns.csv', 'seed_means_and_md_sd.csv', 'finite_size_covariance.csv',
+    for name in ('rdf_295K.csv', 'model_summary_2ns.csv', 'seed_means_and_md_sd.csv', 'finite_size_covariance.csv',
                  'density_reference_comparison.csv', 'density_four_temperature_errors.csv',
                  'molecular_multineighbor_per_seed_macro_rmse.csv', 'stress_decomposition_lanes.csv',
                  'block_length_statistics.csv', 'lane_lag_sensitivity.csv', 'model_lag_sensitivity.csv',

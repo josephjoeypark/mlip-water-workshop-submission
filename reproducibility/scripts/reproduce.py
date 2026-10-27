@@ -34,7 +34,7 @@ def main():
     env.update(WATER_REPRO_OUTPUT=str(output), MPLCONFIGDIR=str(output / '.matplotlib'),
                MPLBACKEND='Agg', PYTHONDONTWRITEBYTECODE='1', OMP_NUM_THREADS='1',
                OPENBLAS_NUM_THREADS='1', MKL_NUM_THREADS='1', NUMEXPR_NUM_THREADS='1')
-    for script in ('build_results.py', 'build_diagnostics.py', 'compare_transport_reference.py', 'build_report.py'):
+    for script in ('aggregate_rdf.py', 'build_results.py', 'build_diagnostics.py', 'compare_transport_reference.py', 'build_report.py'):
         print('Running ' + script, flush=True)
         subprocess.run([sys.executable, '-B', str(RELEASE / 'scripts' / script)], env=env, check=True)
     comparison = compare_rebuild(output)

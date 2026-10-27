@@ -52,7 +52,7 @@ scheduler, or access to the original simulation filesystem.
 
 | Figure or analysis | Numerical inputs | Released figure |
 |---|---|---|
-| Figure 1: equilibrium density and O–O RDF | [Density](results/2ns/data/density_summary.csv), [168 density lanes](results/2ns/data/density_all168_lanes.csv), [RDF](results/2ns/data/rdf_295K.csv) | [PDF](results/2ns/figures/figure1_structure.pdf) |
+| Figure 1: equilibrium density and O–O RDF | [Density](results/2ns/data/density_summary.csv), [168 density lanes](results/2ns/data/density_all168_lanes.csv), [RDF mean/SD](results/2ns/data/rdf_295K.csv), [all 42 RDF replicas](results/2ns/data/rdf_295K_per_replica.csv) | [PDF](results/2ns/figures/figure1_structure.pdf) |
 | Figure 2: corrected diffusion and viscosity | [All 168 replicas](results/2ns/data/prefix2000ps/lanes.csv), [24 states](results/2ns/data/model_summary_2ns.csv) | [PDF](results/2ns/figures/figure2_transport.pdf) |
 | Figure A1: molecular validation | [All training seeds](results/2ns/data/cluster_rmse_all_seeds.csv) | [PDF](results/2ns/figures/figureA1_molecular.pdf) |
 | Prefix sensitivity: 1.0, 1.5, 2.0 ns | [1 ns](results/2ns/data/prefix1000ps/), [1.5 ns](results/2ns/data/prefix1500ps/), [2 ns](results/2ns/data/prefix2000ps/) | Rebuilt Figure S11 |

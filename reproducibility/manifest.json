@@ -4146,6 +4146,13 @@
       "sha256": "f8907fc0efd2f528bcffe7ad822b26d7a681d71eb99f7c9ffd2fc143fb7ea1d3",
       "bytes": 5832,
       "transformation": "byte-for-byte copy"
+    },
+    {
+      "path": "results/2ns/data/rdf_295K_per_replica.csv",
+      "source": "canonical-study/42-NPT-RDF-files",
+      "sha256": "7e54d349fc38b8bc75233c929ab082641e1278220302368300aeb81bea7b74f9",
+      "bytes": 525427,
+      "transformation": "Join canonical lane identity to the unmodified r_A and g_OO field strings from each NPT RDF CSV; source hashes in rdf_replica_sources."
     }
   ],
   "repository_dependencies": [
@@ -4328,6 +4335,218 @@
     {
       "path": "licenses/MACE_CODE_MIT.md",
       "sha256": "42137790f854ae2b9d29a0a72a4da3f6fb9a21d820b3f276f23b0575af72e86e"
+    }
+  ],
+  "rdf_replica_sources": [
+    {
+      "lane_id": 3,
+      "source": "canonical-study/lane_003/npt/rdf.csv",
+      "sha256": "f587c3d3861aa2106b4f5a362c0fbae3f565923931c490c264bd480c64e75e4b"
+    },
+    {
+      "lane_id": 4,
+      "source": "canonical-study/lane_004/npt/rdf.csv",
+      "sha256": "cd8f5a32ca0ffccc555cf00a53421ef8d781c1ec1d880a9e3acd998a2d0ebdc2"
+    },
+    {
+      "lane_id": 5,
+      "source": "canonical-study/lane_005/npt/rdf.csv",
+      "sha256": "b714eb1d2ed04f5b995341ae1f1a133714a615bfbb35c0d677759194ba600768"
+    },
+    {
+      "lane_id": 15,
+      "source": "canonical-study/lane_015/npt/rdf.csv",
+      "sha256": "a81f299d5329ca33233cbdf0bd6c18f41f1092834725f8daa67e4eb5518b7fd8"
+    },
+    {
+      "lane_id": 16,
+      "source": "canonical-study/lane_016/npt/rdf.csv",
+      "sha256": "1adcc8edc89d5264e3938d2858666661f05b64a16bc142561d7d21d4c17b3a77"
+    },
+    {
+      "lane_id": 17,
+      "source": "canonical-study/lane_017/npt/rdf.csv",
+      "sha256": "935eb3ee88e82b23b1064e99e3bfa8d274102d75098bf6d4b59f38c2bf1ee0f2"
+    },
+    {
+      "lane_id": 27,
+      "source": "canonical-study/lane_027/npt/rdf.csv",
+      "sha256": "c9d9bf9ddcd60e3861106af798ebacfc53f3fb813696147a2dfe02a7b05d76d2"
+    },
+    {
+      "lane_id": 28,
+      "source": "canonical-study/lane_028/npt/rdf.csv",
+      "sha256": "cc68628114afbbe68a31e4fcf8ec303183e2276db90f82fe71e370afb5db229a"
+    },
+    {
+      "lane_id": 29,
+      "source": "canonical-study/lane_029/npt/rdf.csv",
+      "sha256": "0dc7e874dc4997bd2b2ed50eea1a42ec009436a935e276c450dca1792d8d7c30"
+    },
+    {
+      "lane_id": 39,
+      "source": "canonical-study/lane_039/npt/rdf.csv",
+      "sha256": "3c4d16dc674d158568fb65441bafeeaa51ca40909e66a18617ba0722c9617d49"
+    },
+    {
+      "lane_id": 40,
+      "source": "canonical-study/lane_040/npt/rdf.csv",
+      "sha256": "ff6bb07be32256d3a1e96dceee07987a3cbeed6c8e1614141e4946763f4d6474"
+    },
+    {
+      "lane_id": 41,
+      "source": "canonical-study/lane_041/npt/rdf.csv",
+      "sha256": "3429dd0d6686a3303963a2918e2728f7535d217033e002b5c3c6a42f662476ab"
+    },
+    {
+      "lane_id": 51,
+      "source": "canonical-study/lane_051/npt/rdf.csv",
+      "sha256": "1e56139e89dcd087e20fdd20550524aa52ee8815860ca2e9c4bd3cbc6a13d686"
+    },
+    {
+      "lane_id": 52,
+      "source": "canonical-study/lane_052/npt/rdf.csv",
+      "sha256": "1fd3d5d9d2bd7ef3a6d7f2c936bdacbd70cdd85bc6305fd711914b62ccc64b6b"
+    },
+    {
+      "lane_id": 53,
+      "source": "canonical-study/lane_053/npt/rdf.csv",
+      "sha256": "05f93cf3890f277329f35040e6ad1dfcaef8515a607058e99346ef4d5005c9d3"
+    },
+    {
+      "lane_id": 63,
+      "source": "canonical-study/lane_063/npt/rdf.csv",
+      "sha256": "f4ee8f59f936db62b5cb855e90b5bbf1b35629230fad3d5a3aea4afb07f0fa86"
+    },
+    {
+      "lane_id": 64,
+      "source": "canonical-study/lane_064/npt/rdf.csv",
+      "sha256": "788d7de5e22f97c5168a1f29e67e22c84087beec327ec583e235a17b849733e8"
+    },
+    {
+      "lane_id": 65,
+      "source": "canonical-study/lane_065/npt/rdf.csv",
+      "sha256": "3cc7b0a1197946a60e284a759712c17e91f571d638a8f226a3467d067136ed4e"
+    },
+    {
+      "lane_id": 75,
+      "source": "canonical-study/lane_075/npt/rdf.csv",
+      "sha256": "4c1d0ad4d34771bc7112f4ad5fa9d78df3010d654ea840199c7b24f1ad63eadc"
+    },
+    {
+      "lane_id": 76,
+      "source": "canonical-study/lane_076/npt/rdf.csv",
+      "sha256": "1cc2cb100a6c7d4d97fe5456512794c0e923b884181667d55ed7dfa36ae242ea"
+    },
+    {
+      "lane_id": 77,
+      "source": "canonical-study/lane_077/npt/rdf.csv",
+      "sha256": "0907d2970888605d25a10421ff1848d1a4cfc1a3ad2303d44d191d3ac134ebb6"
+    },
+    {
+      "lane_id": 87,
+      "source": "canonical-study/lane_087/npt/rdf.csv",
+      "sha256": "64ba56ae038285a7bad3aa3a8b23fddfedaa46d33078fc641bcd443f191b365f"
+    },
+    {
+      "lane_id": 88,
+      "source": "canonical-study/lane_088/npt/rdf.csv",
+      "sha256": "79cafb4c3d6a259468a14463e427225d03a12c0c24873f970238217f4d4bc527"
+    },
+    {
+      "lane_id": 89,
+      "source": "canonical-study/lane_089/npt/rdf.csv",
+      "sha256": "002fd9d8f5744ec4a411b5e7acc09a61b4fba45121df4a560bfc9d426f8732b8"
+    },
+    {
+      "lane_id": 99,
+      "source": "canonical-study/lane_099/npt/rdf.csv",
+      "sha256": "49e652c081fbd490218cf626c0714a8cec7509a9f40d7e7dbbb40fdf5ae9ce6a"
+    },
+    {
+      "lane_id": 100,
+      "source": "canonical-study/lane_100/npt/rdf.csv",
+      "sha256": "f6d07e9b35d97be1108ed88a25a7071ca4fa9d1e481cfc80ea964899b502952a"
+    },
+    {
+      "lane_id": 101,
+      "source": "canonical-study/lane_101/npt/rdf.csv",
+      "sha256": "7e620e38c18cd09dbcd4b5735cc815af04980a9b1319b1116e483bfd17c0f52c"
+    },
+    {
+      "lane_id": 111,
+      "source": "canonical-study/lane_111/npt/rdf.csv",
+      "sha256": "25c7e13650b6945d6c782bbc6bb021533344ee8b37675ab218f1285502c4c5c4"
+    },
+    {
+      "lane_id": 112,
+      "source": "canonical-study/lane_112/npt/rdf.csv",
+      "sha256": "4f2cc1b937918774f5d2b0d84d66f6cf7398d0f03727ed75a77abb5a3c86f5ee"
+    },
+    {
+      "lane_id": 113,
+      "source": "canonical-study/lane_113/npt/rdf.csv",
+      "sha256": "4bfed23959eaf7d6537f98d55dae9e8ed517b1038d615980a9088a24bd420396"
+    },
+    {
+      "lane_id": 123,
+      "source": "canonical-study/lane_123/npt/rdf.csv",
+      "sha256": "1f816e26df1db9293ebda5c119c340672689c83f7b40f6f40fa412175cd49ea4"
+    },
+    {
+      "lane_id": 124,
+      "source": "canonical-study/lane_124/npt/rdf.csv",
+      "sha256": "b767585ec1580377b7c4db24aa81783998fa61502c10e2f691a1f16c38f4dd30"
+    },
+    {
+      "lane_id": 125,
+      "source": "canonical-study/lane_125/npt/rdf.csv",
+      "sha256": "c86a2ef5639952d819ca154290a6294c5c80d4a41c37234136136a54892793b8"
+    },
+    {
+      "lane_id": 135,
+      "source": "canonical-study/lane_135/npt/rdf.csv",
+      "sha256": "b147398217b257fe28d4c724619e489c95597e84040ecab7c21790280cafe551"
+    },
+    {
+      "lane_id": 136,
+      "source": "canonical-study/lane_136/npt/rdf.csv",
+      "sha256": "fa3dae725495ea9914e73227112c4ae22a38634dcee24300d7a8d227cb59e2c0"
+    },
+    {
+      "lane_id": 137,
+      "source": "canonical-study/lane_137/npt/rdf.csv",
+      "sha256": "8431ef715096605028addd813b7509b044ea99da02fd05b4a82b2ecebb4770c7"
+    },
+    {
+      "lane_id": 147,
+      "source": "canonical-study/lane_147/npt/rdf.csv",
+      "sha256": "e1689f1445d4326a4ebd2e7e32d70fcf371121ed420d3c5e5a4d96316f7ba59d"
+    },
+    {
+      "lane_id": 148,
+      "source": "canonical-study/lane_148/npt/rdf.csv",
+      "sha256": "03a8582c43d7cc1bcb004cb055502f191e08ad15a33625265d20e946df99592f"
+    },
+    {
+      "lane_id": 149,
+      "source": "canonical-study/lane_149/npt/rdf.csv",
+      "sha256": "2ea06e940d8ba10cc5582b329a1e56f023447fb7daca82b3f6cff3c94e63bc1c"
+    },
+    {
+      "lane_id": 159,
+      "source": "canonical-study/lane_159/npt/rdf.csv",
+      "sha256": "37c1abd016c23d0b648e7e1120c7bc082ee8a6dff032d99bbb9beb38c2c55857"
+    },
+    {
+      "lane_id": 160,
+      "source": "canonical-study/lane_160/npt/rdf.csv",
+      "sha256": "29965b9b844b404ccc9155e60ea7db74c1809a08c346e38b75ef3e31d3fc2c8b"
+    },
+    {
+      "lane_id": 161,
+      "source": "canonical-study/lane_161/npt/rdf.csv",
+      "sha256": "bad414cb52b4ede32566e99aa927f6934740ef4c5a867c30942f04b50ff2f53e"
     }
   ]
 }
