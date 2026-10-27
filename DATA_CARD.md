@@ -1,43 +1,36 @@
 # Data card
 
-## Molecular adaptation data
+## Molecular data
 
-The source population contains 1,000 parent molecular configurations labeled
-at $\omega$B97M-V/def2-TZVPD. Parents, rather than child clusters, are split
-800/100/100 into train/validation/test sets to prevent related clusters from
-crossing partitions.
+The dataset contains 1,000 parent configurations, split 800/100/100 into
+training/validation/test sets. All child clusters stay in their parent's split.
 
-| Lane | Train | Validation | Test |
+| Coverage | Training records | Validation records | Test records |
 |---|---:|---:|---:|
-| G1-G2 | 5,600 records / 800 parents | 700 / 100 | 700 / 100 |
-| G1-G6 | 8,800 records / 800 parents | 1,100 / 100 | 1,100 / 100 |
+| G1–G2 | 5,600 | 700 | 700 |
+| G1–G6 | 8,800 | 1,100 | 1,100 |
 
-The larger record totals are deterministic cluster expansions, not additional
-independent parents. File-level hashes and counts are stored beside each split
-in `model_training/data/molecular_clusters_1000/*/manifest.json`. Figure 1 uses the validation parents; the
-locked test parents were not used for plotted model selection.
+G2–G6 use raw total-energy and force labels documented as
+omegaB97M-V/def2-TZVPD. G1 uses aligned fragment energies and
+geometric-distortion forces; its source method metadata is incomplete.
+[Label audits](reproducibility/PROVENANCE.md#reference-labels) document this
+distinction and the monomer-force invariance residual.
 
-## Liquid and paper data
+Split files and hashes are in
+[`model_training/data/molecular_clusters_1000/`](model_training/data/molecular_clusters_1000/).
+Figure A1 uses validation configurations; the locked test split is not plotted.
 
-- `md_simulations/data/initial_configuration/liquid-64.xyz`: the exact cited
-  upstream 64-water configuration used to initialize MD; see its `SOURCE.md`.
-- `model_training/data/bec_frame0/liquid-64.xyz`: the same frame used for
-  one-frame response evaluation.
-- `model_training/data/bec_frame0/les_latent_charges_64water_frame0.csv`: raw latent outputs;
-  these are not calibrated partial charges.
-- `model_training/data/bec_frame0/les_bec_64water_frame0.csv`: raw 3x3 atom-wise BEC tensors.
-- `md_simulations/data/published_results`: compact state summaries and plotted curves.
-- `model_training/data/model_parameters.csv` and
-  `model_training/data/bec_frame0/bec_comparison.csv`: manuscript tables.
+## Liquid data
 
-External experimental/reference curves retain their citations in `RESULTS.md`
-and `FIGURES.md`. The compact tables report SD or SEM explicitly in column
-names; those statistics must not be interchanged.
+The [MD input](reproducibility/md/input/liquid-64.xyz) contains 64 water
+molecules. The [compact results](reproducibility/results/2ns/data/) cover 168
+lanes, each with 1 ns NPT and 2 ns NVT, plus per-seed summaries and plotting
+arrays. Full trajectories and checkpoint binaries are not included.
 
-## Intended use and limits
+Adapted uncertainty is sample SD across three training-seed means after
+averaging MD replicas; baseline uncertainty is MD-replica sample SD. These
+are descriptive sampling statistics, not confidence intervals or evidence
+of thermodynamic-limit convergence.
 
-The data support non-commercial academic reproduction of this molecular-to-
-liquid deployment audit. They do not establish transferable charge labels,
-thermodynamic-limit transport, or a controlled causal ablation between the two
-different foundation checkpoints. Consult the upstream model licenses before
-training or redistribution.
+Experimental reference curves and citations are recorded in
+[source provenance](reproducibility/results/2ns/provenance/external_sources.json).

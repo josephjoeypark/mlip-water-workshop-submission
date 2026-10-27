@@ -1,71 +1,42 @@
-# Corrected 2 ns molecular dynamics
+# Molecular dynamics and analysis
 
-The four programs in `internal/` are copied byte for byte from the corrected
-production campaign. `run_nvt_segment.py` is the validated October restart
-correction, which restores the exact saved momenta and thermostat state.
-The LES runners verify native single-cell strain and do not apply the
-historical duplicate strain patch. Source hashes are in [the manifest](../manifest.json).
+The [protocol](../configs/protocol_2ns.json) defines 1 ns NPT followed by 2 ns
+NVT for each of the [168 lanes](../configs/lanes.csv). The
+[64-water starting configuration](input/liquid-64.xyz), production scripts,
+and MACE/LES source snapshot are included here.
 
-The exact 168 model/temperature/training-seed/velocity-seed identities are in
-[`configs/lanes.csv`](../configs/lanes.csv). The initial 64-water input is
-[`input/liquid-64.xyz`](input/liquid-64.xyz). Use this exact file: it has a
-different byte hash from the older input elsewhere in the repository.
+Install the [production environment](../environment/README.md) and supply the
+models named in the [checkpoint manifest](../models/manifest.json).
 
-Install the [production dependencies](../environment/requirements-production.txt)
-and obtain the [checksum-identified models](../models/manifest.json). Put them
-under `reproducibility/models/` using the manifest filenames, or pass
-`--models-dir`. The launcher selects the included frozen source snapshot.
+## Run a lane
 
-From the repository root, print the commands for one lane:
+From the repository root:
 
 ```bash
 python reproducibility/md/run_lane.py --lane 0 --stage gate
 python reproducibility/md/run_lane.py --lane 0 --stage npt
 python reproducibility/md/run_lane.py --lane 0 --stage analyze-npt
 python reproducibility/md/run_lane.py --lane 0 --stage nvt --segment 1
-python reproducibility/md/run_lane.py --lane 0 --stage nvt --segment 2
 ```
 
-Add `--execute` within an appropriate compute allocation. Complete the gate,
-NPT, and NPT analysis before starting NVT. Run NVT segments **1 through 16
-in order**: 500 ps, followed by fifteen 100 ps continuations, totaling 2 ns.
-Every continuation uses the preceding `final.traj` and `dynamics_state.npz`.
-The settings are read from [`protocol_2ns.json`](../configs/protocol_2ns.json).
-The default output is `runs/corrected-2ns-md/lane_NNN/`.
+These commands print the planned invocation. Add `--execute` inside a compute
+allocation. Complete the stages in order, then run NVT segments **1–16**:
+500 ps followed by fifteen 100 ps continuations. Each continuation restores
+the preceding atomic and thermostat checkpoints.
 
-No simulation or scheduler submission is part of the compact figure rebuild.
-Re-running MD requires the model binaries and compute resources. The bundled
-CSV/NPZ results are sufficient for all included figures.
+Use `--models-dir` and `--runs-dir` to select input and output locations.
 
 ## Analyze trajectories
 
-`analyze_npt.py` calculates density and RDF and chooses the representative-volume
-frame for NVT initialization. Its launcher command above uses 500–1,000 ps.
-
-[`analyze_transport.py`](analyze_transport.py) applies the frozen VACF/MSD
-diffusion and five-channel Green–Kubo viscosity estimators with the completed
-campaign's 16-segment discovery. It sets correlation stride to 1, keeps training
-seeds separate, checks each segment's checkpoint identity and corrected LES
-stress implementation, and supports all four archived analysis windows:
-
 ```bash
 python reproducibility/md/analyze_transport.py --window all
-# In a CPU allocation, once trajectories are available:
-python reproducibility/md/analyze_transport.py --window all --execute
 ```
 
-Pass `--runs-dir` to relocate the MD outputs and `--output` for a new analysis
-directory. `--window` accepts `1000`, `1500`, `2000`, `1000:2000`, or `all`;
-`--lane N` restricts work to selected lanes. The default is a dry run. Full
-168-lane runs produce per-lane, per-seed, and 24-state summaries using the same
-aggregation as [`build_results.py`](../scripts/build_results.py).
+Add `--execute` in a CPU allocation to run the analysis. Use `--runs-dir` to
+locate trajectories and `--output` for a new result directory. Individual
+windows are `1000`, `1500`, `2000`, and `1000:2000` ps; `--lane N` selects a lane.
 
-The historical estimator module in `internal/` is preserved unchanged. Its
-standalone segment discovery stops at 1 ns and its historical summary does
-not distinguish training seeds. Use the portable wrapper above for the 2 ns
-study; it extends discovery to segment 16, starts the second nanosecond at
-segment 7, and keeps the original estimators unchanged.
-
-The released compact tables also include the frozen 1,000/1,500/2,000 ps
-prefixes and disjoint 1,000–2,000 ps analysis. Figure reproduction reads these
-native-cadence scalar estimates and their compact plot arrays directly.
+The wrapper processes all 16 segments at native 0.5 fs cadence and retains
+training-seed and MD-replica identities. Full-study outputs include lane,
+seed, and model/temperature summaries. Use this wrapper as the analysis entry
+point; the modules under `internal/` supply its estimators.
