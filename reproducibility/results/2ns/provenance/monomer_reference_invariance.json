@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "utc": "2026-10-26T13:49:33.624124+00:00",
+  "source_sha256": "55c0e5578240f1d84de8ff1f02f2f9a25b0c09f1d21236c6a07ae165166f7572",
+  "rows": [
+    {
+      "split": "train",
+      "monomers": 4800,
+      "input_sha256": "1c8b4d4fad595aa3360b071b28419e087bf0fbed3738428374b8e44d4f77a4ac",
+      "rigid_component_rmse_meV_A": 0.8776337496401418,
+      "translation_component_rmse_meV_A": 1.7352242179409674e-05,
+      "rotation_component_rmse_meV_A": 0.8776337494686016,
+      "net_force_rmse_meV_A": 5.2056726538229146e-05,
+      "torque_rmse_meV": 1.2846837962798703
+    },
+    {
+      "split": "valid",
+      "monomers": 600,
+      "input_sha256": "0520f1bc418b90894c1fc09242323c53196d9c587537acd256755aa9bbab6a67",
+      "rigid_component_rmse_meV_A": 0.8971726276012412,
+      "translation_component_rmse_meV_A": 1.774249971961106e-05,
+      "rotation_component_rmse_meV_A": 0.8971726274258033,
+      "net_force_rmse_meV_A": 5.322749915883321e-05,
+      "torque_rmse_meV": 1.298898764419021
+    }
+  ],
+  "scope": "Descriptive audit of unchanged historical train/validation monomer labels, added after the 2 ns analysis. No molecular checkpoint, input label, bulk trajectory, estimator or plotted data is changed.",
+  "interpretation": "An isolated translation- and rotation-invariant scalar energy cannot produce a rigid net-force/torque component. This reference component is therefore an irreducible residual for that model class. The audit does not identify its historical cause or its effect on bulk properties."
+}

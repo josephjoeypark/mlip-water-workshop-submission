@@ -1,5 +1,9 @@
 # Paper figures
 
+The [corrected 2 ns figures and source data](reproducibility/README.md#corrected-2-ns-results)
+supersede the LES bulk results below. This page preserves the historical
+700 ps submission and its original figure numbering.
+
 These are review-ready layouts for the three-stage manuscript story:
 molecular transfer, equilibrium liquid structure, and transport. PNG and PDF versions are available in [`paper/figures`](paper/figures/); compact
 source data are in [`model_training/data`](model_training/data/) and [`md_simulations/data/published_results`](md_simulations/data/published_results/).

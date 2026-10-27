@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "utc": "2026-10-26T03:38:45.317216+00:00",
+  "trajectories": 168,
+  "npt_ns": 168,
+  "nvt_ns": 336,
+  "segments": 2688,
+  "complete_seed_temperature_states": 56,
+  "model_temperature_states": 24,
+  "corrected_runs": 132,
+  "historical_off": 36,
+  "historical_les": 0,
+  "exact_final_restarts": 168,
+  "scope": "Current complete markers, canonical identities, source hashes, checkpoint validation, all array shapes, and exact final atom/thermostat restoration. Frozen job 59930836 scanned all consumed velocity/stress/position samples for finiteness; the new diagnostic job rechecks stress arrays.",
+  "full_study_analysis_job": "59930836",
+  "study_source_manifest_sha256": "91b033ae242f058ae463fbf6f4c57a40dea9b8f457a3166493b14167f91e627c"
+}

@@ -1,0 +1,3 @@
+# Install the repository's pinned dependencies; the MD launcher selects the
+# exact frozen corrected MACE/LES source via PYTHONPATH.
+-r ../../environment/requirements-production.txt

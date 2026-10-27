@@ -1,0 +1,27 @@
+{
+  "openreview": {
+    "url": "https://openreview.net/forum?id=qmM4pTpQ2N",
+    "review_source": "Full reviews supplied by user in this conversation",
+    "pdf_status": "HTTP 403; layout taken from archived final supplement code and reviewer figure labels"
+  },
+  "github": {
+    "strict_elora": {
+      "url": "https://github.com/josephjoeypark/strict-elora-mace-water",
+      "readme_blob_sha": "cb94f58d5b527eb07c73b7b75ee55b01f9b85731",
+      "scope": "Separate rank-16 ELoRA study; not a matched comparison for this rank-32 LoRA paper"
+    },
+    "deployment_audit": {
+      "url": "https://github.com/josephjoeypark/mlip-water-deployment-audit",
+      "tree_sha": "0e7fc0766b5f7b461a25e7c936895239f07b1174",
+      "scope": "Historical 700 ps prototype; old LES values superseded by corrected native-stress campaign"
+    }
+  },
+  "methods_sources": [
+    "https://pubs.acs.org/doi/10.1021/jp0477147",
+    "https://www.nist.gov/publications/best-practices-quantification-uncertainty-and-sampling-quality-molecular-simulations"
+  ],
+  "foundation_theory_sources": [
+    "https://pmc.ncbi.nlm.nih.gov/articles/PMC12123624/",
+    "https://pmc.ncbi.nlm.nih.gov/articles/PMC12707604/"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "utc": "2026-10-26T13:49:37.367490+00:00",
+  "frozen_aggregation_values_checked": 336,
+  "primary_scalars_reproduced_from_native_curves": 336,
+  "independent_yeh_hummer_checks": 168,
+  "paper_figure_pdf_pages": {
+    "figure1_structure": 1,
+    "figure2_transport": 1,
+    "figureA1_molecular": 1,
+    "figureS1_raw_transport": 1,
+    "figureS2_stress_short": 1,
+    "figureS3_stress_tail": 1,
+    "figureS4_green_kubo_50ps": 1,
+    "figureS5_green_kubo_20ps": 1,
+    "figureS6_vacf": 1,
+    "figureS7_running_diffusion": 1,
+    "figureS8_disjoint_viscosity": 1,
+    "figureS9_disjoint_diffusion": 1,
+    "figureS10_block_length": 1,
+    "figureS11_prefix_length_295K": 1
+  },
+  "state_appendix_pages": 24
+}

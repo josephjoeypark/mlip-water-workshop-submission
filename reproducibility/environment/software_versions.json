@@ -1,0 +1,25 @@
+{
+  "manuscript": {
+    "mace": "0.3.16",
+    "torch": "2.7.1",
+    "ase": "3.29.0",
+    "dtype": "float64"
+  },
+  "corrected_2ns": {
+    "python": "3.12.11",
+    "mace_source_declared": "0.3.17",
+    "torch": "2.7.1+cu128",
+    "ase": "3.29.0",
+    "dtype": "float64"
+  },
+  "analysis": {
+    "numpy": "1.26.4",
+    "pandas": "3.0.5",
+    "matplotlib": "3.11.1",
+    "pypdf": "6.1.1",
+    "torch": "2.7.1+cu128",
+    "ase": "3.29.0"
+  },
+  "source_snapshot": "md/vendor; exact source bytes recorded in manifest.json",
+  "note": "The manuscript MACE version and frozen corrected-campaign source disagree. They are recorded separately."
+}

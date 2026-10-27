@@ -1,5 +1,11 @@
 # Reproducibility contract
 
+For the Section 2.4 checklist and the corrected **168-trajectory, 2 ns** study,
+use [the dedicated reproducibility section](reproducibility/README.md).
+It includes its own portable rebuild and integrity/numerical validator.
+The contract below describes the historical 700 ps submission; its LES bulk
+outputs are superseded by the corrected study.
+
 ## What is reproduced from this archive alone
 
 `bash reproduce.sh` rebuilds all manuscript tables and Figures 1--3 from the

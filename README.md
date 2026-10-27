@@ -1,5 +1,25 @@
 # Molecular-to-liquid deployment audit
 
+## 2.4 Software and reproducibility — including corrected 2 ns results
+
+The dedicated [software and reproducibility section](reproducibility/README.md)
+collects the adaptation geometries and labels, pinned environments and protocols,
+training and adapter-fusion code, corrected MD and observable-analysis scripts,
+figure builders, model/checkpoint manifests, and compact per-seed/per-replica
+results. It includes all **168 completed 2 ns trajectories** and a portable
+command to rebuild the corrected figures:
+
+```bash
+python -m pip install -r reproducibility/environment/requirements-analysis.txt
+bash reproducibility/run_reproduce.sh
+```
+
+The corrected LES bulk results supersede the historical results below. See
+the [2 ns figure and data index](reproducibility/README.md#corrected-2-ns-results)
+and the [MACE version reconciliation](reproducibility/environment/README.md).
+
+## Original workshop artifact
+
 Anonymous NeurIPS workshop artifact for a six-model water study. The repository
 contains the full 1,000-parent molecular dataset, exact fixed-update training
 launchers, restart-safe NPT/NVT production code, response analysis, compact

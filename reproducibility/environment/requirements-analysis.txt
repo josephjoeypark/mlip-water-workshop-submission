@@ -1,0 +1,2 @@
+-r ../../environment/requirements-analysis.txt
+pypdf==6.1.1

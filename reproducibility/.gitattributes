@@ -1,0 +1,4 @@
+# Preserve the exact archived source/data bytes used by the SHA-256 manifests.
+md/vendor/** -text -whitespace linguist-vendored
+md/internal/** -text
+results/2ns/** -text

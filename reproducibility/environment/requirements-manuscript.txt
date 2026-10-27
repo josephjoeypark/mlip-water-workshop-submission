@@ -1,0 +1,4 @@
+# Versions stated in Section 2.4; see README.md before using for corrected MD.
+mace-torch==0.3.16
+torch==2.7.1
+ase==3.29.0

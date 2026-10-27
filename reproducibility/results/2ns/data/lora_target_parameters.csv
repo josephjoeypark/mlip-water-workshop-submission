@@ -1,0 +1,79 @@
+backbone,module_name,module_type,parameter_name,shape,parameter_count
+OFF,node_embedding.linear,mace.modules.lora.LoRAO3Linear,node_embedding.linear.lora_A.weight,[320],320
+OFF,node_embedding.linear,mace.modules.lora.LoRAO3Linear,node_embedding.linear.lora_B.weight,[4096],4096
+OFF,interactions.0.linear_up,mace.modules.lora.LoRAO3Linear,interactions.0.linear_up.lora_A.weight,[4096],4096
+OFF,interactions.0.linear_up,mace.modules.lora.LoRAO3Linear,interactions.0.linear_up.lora_B.weight,[4096],4096
+OFF,interactions.0.conv_tp_weights.layer0,mace.modules.lora.LoRAFCLayer,interactions.0.conv_tp_weights.layer0.lora_A,"[8, 32]",256
+OFF,interactions.0.conv_tp_weights.layer0,mace.modules.lora.LoRAFCLayer,interactions.0.conv_tp_weights.layer0.lora_B,"[32, 64]",2048
+OFF,interactions.0.conv_tp_weights.layer1,mace.modules.lora.LoRAFCLayer,interactions.0.conv_tp_weights.layer1.lora_A,"[64, 32]",2048
+OFF,interactions.0.conv_tp_weights.layer1,mace.modules.lora.LoRAFCLayer,interactions.0.conv_tp_weights.layer1.lora_B,"[32, 64]",2048
+OFF,interactions.0.conv_tp_weights.layer2,mace.modules.lora.LoRAFCLayer,interactions.0.conv_tp_weights.layer2.lora_A,"[64, 32]",2048
+OFF,interactions.0.conv_tp_weights.layer2,mace.modules.lora.LoRAFCLayer,interactions.0.conv_tp_weights.layer2.lora_B,"[32, 64]",2048
+OFF,interactions.0.conv_tp_weights.layer3,mace.modules.lora.LoRAFCLayer,interactions.0.conv_tp_weights.layer3.lora_A,"[64, 32]",2048
+OFF,interactions.0.conv_tp_weights.layer3,mace.modules.lora.LoRAFCLayer,interactions.0.conv_tp_weights.layer3.lora_B,"[32, 512]",16384
+OFF,interactions.0.linear,mace.modules.lora.LoRAO3Linear,interactions.0.linear.lora_A.weight,[16384],16384
+OFF,interactions.0.linear,mace.modules.lora.LoRAO3Linear,interactions.0.linear.lora_B.weight,[16384],16384
+OFF,interactions.1.linear_up,mace.modules.lora.LoRAO3Linear,interactions.1.linear_up.lora_A.weight,[8192],8192
+OFF,interactions.1.linear_up,mace.modules.lora.LoRAO3Linear,interactions.1.linear_up.lora_B.weight,[8192],8192
+OFF,interactions.1.conv_tp_weights.layer0,mace.modules.lora.LoRAFCLayer,interactions.1.conv_tp_weights.layer0.lora_A,"[8, 32]",256
+OFF,interactions.1.conv_tp_weights.layer0,mace.modules.lora.LoRAFCLayer,interactions.1.conv_tp_weights.layer0.lora_B,"[32, 64]",2048
+OFF,interactions.1.conv_tp_weights.layer1,mace.modules.lora.LoRAFCLayer,interactions.1.conv_tp_weights.layer1.lora_A,"[64, 32]",2048
+OFF,interactions.1.conv_tp_weights.layer1,mace.modules.lora.LoRAFCLayer,interactions.1.conv_tp_weights.layer1.lora_B,"[32, 64]",2048
+OFF,interactions.1.conv_tp_weights.layer2,mace.modules.lora.LoRAFCLayer,interactions.1.conv_tp_weights.layer2.lora_A,"[64, 32]",2048
+OFF,interactions.1.conv_tp_weights.layer2,mace.modules.lora.LoRAFCLayer,interactions.1.conv_tp_weights.layer2.lora_B,"[32, 64]",2048
+OFF,interactions.1.conv_tp_weights.layer3,mace.modules.lora.LoRAFCLayer,interactions.1.conv_tp_weights.layer3.lora_A,"[64, 32]",2048
+OFF,interactions.1.conv_tp_weights.layer3,mace.modules.lora.LoRAFCLayer,interactions.1.conv_tp_weights.layer3.lora_B,"[32, 1280]",40960
+OFF,interactions.1.linear,mace.modules.lora.LoRAO3Linear,interactions.1.linear.lora_A.weight,[40960],40960
+OFF,interactions.1.linear,mace.modules.lora.LoRAO3Linear,interactions.1.linear.lora_B.weight,[16384],16384
+OFF,products.0.linear,mace.modules.lora.LoRAO3Linear,products.0.linear.lora_A.weight,[8192],8192
+OFF,products.0.linear,mace.modules.lora.LoRAO3Linear,products.0.linear.lora_B.weight,[8192],8192
+OFF,products.1.linear,mace.modules.lora.LoRAO3Linear,products.1.linear.lora_A.weight,[4096],4096
+OFF,products.1.linear,mace.modules.lora.LoRAO3Linear,products.1.linear.lora_B.weight,[4096],4096
+OFF,readouts.0.linear,mace.modules.lora.LoRAO3Linear,readouts.0.linear.lora_A.weight,[4096],4096
+OFF,readouts.0.linear,mace.modules.lora.LoRAO3Linear,readouts.0.linear.lora_B.weight,[32],32
+OFF,readouts.1.linear_1,mace.modules.lora.LoRAO3Linear,readouts.1.linear_1.lora_A.weight,[4096],4096
+OFF,readouts.1.linear_1,mace.modules.lora.LoRAO3Linear,readouts.1.linear_1.lora_B.weight,[512],512
+OFF,readouts.1.linear_2,mace.modules.lora.LoRAO3Linear,readouts.1.linear_2.lora_A.weight,[512],512
+OFF,readouts.1.linear_2,mace.modules.lora.LoRAO3Linear,readouts.1.linear_2.lora_B.weight,[32],32
+LES,node_embedding.linear,mace.modules.lora.LoRAO3Linear,node_embedding.linear.lora_A.weight,[320],320
+LES,node_embedding.linear,mace.modules.lora.LoRAO3Linear,node_embedding.linear.lora_B.weight,[6144],6144
+LES,interactions.0.linear_up,mace.modules.lora.LoRAO3Linear,interactions.0.linear_up.lora_A.weight,[6144],6144
+LES,interactions.0.linear_up,mace.modules.lora.LoRAO3Linear,interactions.0.linear_up.lora_B.weight,[6144],6144
+LES,interactions.0.conv_tp_weights.layer0,mace.modules.lora.LoRAFCLayer,interactions.0.conv_tp_weights.layer0.lora_A,"[8, 32]",256
+LES,interactions.0.conv_tp_weights.layer0,mace.modules.lora.LoRAFCLayer,interactions.0.conv_tp_weights.layer0.lora_B,"[32, 64]",2048
+LES,interactions.0.conv_tp_weights.layer1,mace.modules.lora.LoRAFCLayer,interactions.0.conv_tp_weights.layer1.lora_A,"[64, 32]",2048
+LES,interactions.0.conv_tp_weights.layer1,mace.modules.lora.LoRAFCLayer,interactions.0.conv_tp_weights.layer1.lora_B,"[32, 64]",2048
+LES,interactions.0.conv_tp_weights.layer2,mace.modules.lora.LoRAFCLayer,interactions.0.conv_tp_weights.layer2.lora_A,"[64, 32]",2048
+LES,interactions.0.conv_tp_weights.layer2,mace.modules.lora.LoRAFCLayer,interactions.0.conv_tp_weights.layer2.lora_B,"[32, 64]",2048
+LES,interactions.0.conv_tp_weights.layer3,mace.modules.lora.LoRAFCLayer,interactions.0.conv_tp_weights.layer3.lora_A,"[64, 32]",2048
+LES,interactions.0.conv_tp_weights.layer3,mace.modules.lora.LoRAFCLayer,interactions.0.conv_tp_weights.layer3.lora_B,"[32, 768]",24576
+LES,interactions.0.linear,mace.modules.lora.LoRAO3Linear,interactions.0.linear.lora_A.weight,[24576],24576
+LES,interactions.0.linear,mace.modules.lora.LoRAO3Linear,interactions.0.linear.lora_B.weight,[24576],24576
+LES,interactions.1.linear_up,mace.modules.lora.LoRAO3Linear,interactions.1.linear_up.lora_A.weight,[12288],12288
+LES,interactions.1.linear_up,mace.modules.lora.LoRAO3Linear,interactions.1.linear_up.lora_B.weight,[12288],12288
+LES,interactions.1.conv_tp_weights.layer0,mace.modules.lora.LoRAFCLayer,interactions.1.conv_tp_weights.layer0.lora_A,"[8, 32]",256
+LES,interactions.1.conv_tp_weights.layer0,mace.modules.lora.LoRAFCLayer,interactions.1.conv_tp_weights.layer0.lora_B,"[32, 64]",2048
+LES,interactions.1.conv_tp_weights.layer1,mace.modules.lora.LoRAFCLayer,interactions.1.conv_tp_weights.layer1.lora_A,"[64, 32]",2048
+LES,interactions.1.conv_tp_weights.layer1,mace.modules.lora.LoRAFCLayer,interactions.1.conv_tp_weights.layer1.lora_B,"[32, 64]",2048
+LES,interactions.1.conv_tp_weights.layer2,mace.modules.lora.LoRAFCLayer,interactions.1.conv_tp_weights.layer2.lora_A,"[64, 32]",2048
+LES,interactions.1.conv_tp_weights.layer2,mace.modules.lora.LoRAFCLayer,interactions.1.conv_tp_weights.layer2.lora_B,"[32, 64]",2048
+LES,interactions.1.conv_tp_weights.layer3,mace.modules.lora.LoRAFCLayer,interactions.1.conv_tp_weights.layer3.lora_A,"[64, 32]",2048
+LES,interactions.1.conv_tp_weights.layer3,mace.modules.lora.LoRAFCLayer,interactions.1.conv_tp_weights.layer3.lora_B,"[32, 1920]",61440
+LES,interactions.1.linear,mace.modules.lora.LoRAO3Linear,interactions.1.linear.lora_A.weight,[61440],61440
+LES,interactions.1.linear,mace.modules.lora.LoRAO3Linear,interactions.1.linear.lora_B.weight,[24576],24576
+LES,products.0.linear,mace.modules.lora.LoRAO3Linear,products.0.linear.lora_A.weight,[12288],12288
+LES,products.0.linear,mace.modules.lora.LoRAO3Linear,products.0.linear.lora_B.weight,[12288],12288
+LES,products.1.linear,mace.modules.lora.LoRAO3Linear,products.1.linear.lora_A.weight,[6144],6144
+LES,products.1.linear,mace.modules.lora.LoRAO3Linear,products.1.linear.lora_B.weight,[6144],6144
+LES,readouts.0.linear,mace.modules.lora.LoRAO3Linear,readouts.0.linear.lora_A.weight,[6144],6144
+LES,readouts.0.linear,mace.modules.lora.LoRAO3Linear,readouts.0.linear.lora_B.weight,[32],32
+LES,readouts.1.linear_1,mace.modules.lora.LoRAO3Linear,readouts.1.linear_1.lora_A.weight,[6144],6144
+LES,readouts.1.linear_1,mace.modules.lora.LoRAO3Linear,readouts.1.linear_1.lora_B.weight,[512],512
+LES,readouts.1.linear_2,mace.modules.lora.LoRAO3Linear,readouts.1.linear_2.lora_A.weight,[512],512
+LES,readouts.1.linear_2,mace.modules.lora.LoRAO3Linear,readouts.1.linear_2.lora_B.weight,[32],32
+LES,les_readouts.0.linear,mace.modules.lora.LoRAO3Linear,les_readouts.0.linear.lora_A.weight,[6144],6144
+LES,les_readouts.0.linear,mace.modules.lora.LoRAO3Linear,les_readouts.0.linear.lora_B.weight,[32],32
+LES,les_readouts.1.linear_1,mace.modules.lora.LoRAO3Linear,les_readouts.1.linear_1.lora_A.weight,[6144],6144
+LES,les_readouts.1.linear_1,mace.modules.lora.LoRAO3Linear,les_readouts.1.linear_1.lora_B.weight,[512],512
+LES,les_readouts.1.linear_2,mace.modules.lora.LoRAO3Linear,les_readouts.1.linear_2.lora_A.weight,[512],512
+LES,les_readouts.1.linear_2,mace.modules.lora.LoRAO3Linear,les_readouts.1.linear_2.lora_B.weight,[32],32

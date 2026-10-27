@@ -1,5 +1,9 @@
 # Results and discussion
 
+This page records the historical 700 ps submission. Its LES bulk values and
+2.4-fold viscosity interpretation are superseded by the
+[corrected 168-trajectory, 2 ns results](reproducibility/README.md#corrected-2-ns-results).
+
 This manuscript-ready section links numerical values to the
 committed source tables so that the prose, tables, and figures can be audited
 together.

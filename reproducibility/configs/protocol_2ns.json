@@ -1,0 +1,106 @@
+{
+  "schema_version": "water-corrected-2ns-v1",
+  "runtime_dtype": "float64",
+  "waters": 64,
+  "temperatures_K": [
+    275,
+    295,
+    315,
+    336
+  ],
+  "training_seeds": [
+    17,
+    29,
+    43
+  ],
+  "replicas_per_seed": 3,
+  "baseline_replicas": 3,
+  "total_trajectories": 168,
+  "total_nvt_ns": 336,
+  "optimizer_updates": 123200,
+  "lora_rank": 32,
+  "lora_alpha": 32,
+  "npt": {
+    "timestep_fs": 1.0,
+    "preparation_ps": 5.0,
+    "production_ps": 1000.0,
+    "analysis_start_ps": 500.0,
+    "pressure_bar": 1.01325,
+    "ttime_fs": 10.0,
+    "tdamp_fs": 50.0,
+    "pdamp_fs": 500.0,
+    "tchain": 5,
+    "pchain": 5,
+    "tloop": 2,
+    "ploop": 2,
+    "thermo_every": 10,
+    "trajectory_every": 100,
+    "thermo_flush_every": 100
+  },
+  "nvt": {
+    "timestep_fs": 0.5,
+    "equilibration_ps": 0.0,
+    "production_ps": 2000.0,
+    "production_segments_ps": [
+      500.0,
+      100.0,
+      100.0,
+      100.0,
+      100.0,
+      100.0,
+      100.0,
+      100.0,
+      100.0,
+      100.0,
+      100.0,
+      100.0,
+      100.0,
+      100.0,
+      100.0,
+      100.0
+    ],
+    "ttime_fs": 10.0,
+    "position_every": 100,
+    "velocity_every": 1,
+    "stress_every": 1,
+    "thermo_every": 1000
+  },
+  "estimators": {
+    "correlation_stride": 1,
+    "correlation_cadence_fs": 0.5,
+    "running_integral_window_ps": [
+      5.0,
+      10.0
+    ],
+    "sensitivity_window_ps": [
+      10.0,
+      20.0
+    ],
+    "msd_fit_ps": [
+      10.0,
+      600.0
+    ],
+    "prefixes_ps": [
+      1000,
+      1500,
+      2000
+    ],
+    "disjoint_windows_ps": [
+      [
+        0,
+        1000
+      ],
+      [
+        1000,
+        2000
+      ]
+    ],
+    "finite_size_correction": "lane-wise Yeh-Hummer before aggregation",
+    "adapted_uncertainty": "sample SD (ddof=1) across training-seed means after averaging MD replicas",
+    "baseline_uncertainty": "sample SD (ddof=1) across MD replicas"
+  },
+  "stress_implementation": "native_mace_les_single_cell_strain_v1",
+  "input_sha256": "f8907fc0efd2f528bcffe7ad822b26d7a681d71eb99f7c9ffd2fc143fb7ea1d3",
+  "original_manuscript_mace_version": "0.3.16",
+  "corrected_campaign_mace_source_version": "0.3.17"
+}

@@ -1,0 +1,54 @@
+{
+  "passed": true,
+  "utc": "2026-10-26T04:11:18.682728+00:00",
+  "meaning": "Provenance traced; this is not independent verification of identical quantum settings.",
+  "source_manifest": "archive/home/mace_off_water_isobar/data/cluster_lora_t12_t16_v1/manifest.json",
+  "source_manifest_sha256": "fffd86eafe601532ae272d1a3db91fe5c188c297f1430ec6c9dfbf6247bf82e9",
+  "preparation_code_sha256": "95106a004ed6df3b24648ef702a33191d627356dc5ca27be989d95dbeec375e8",
+  "released_train_valid_exactly_match_legacy_sha256": {
+    "train": "1c8b4d4fad595aa3360b071b28419e087bf0fbed3738428374b8e44d4f77a4ac",
+    "valid": "0520f1bc418b90894c1fc09242323c53196d9c587537acd256755aa9bbab6a67"
+  },
+  "G2_G6": "Original raw total-energy and total-force labels with explicit wB97M-V/def2-TZVPD metadata",
+  "G1": "Combined EDA/FDA fragment energies plus one training-only constant energy shift; geometric-distortion forces",
+  "combined_source_method_metadata": "absent; numerical cross-dataset audit required",
+  "monomer_energy_reference": {
+    "definition": "combined fragment energy plus one training-only constant shift",
+    "fit_samples": 4800,
+    "shift_eV_per_water": -0.016457645796231643,
+    "shifted_g1_minus_raw_eda_residual_eV_per_water": {
+      "count": 4800,
+      "maximum": 0.0009233021214611857,
+      "maximum_absolute": 0.0016799072957822889,
+      "mean": 1.2750217548429532e-18,
+      "minimum": -0.0016799072957822889,
+      "rms": 0.0004797984820313025,
+      "std": 0.0004797984820313025
+    }
+  },
+  "training_only_cross_source_audit": {
+    "cluster_configurations": 4000,
+    "g1_configurations": 4800,
+    "parents": 800,
+    "raw_minus_fda_total_force_eV_per_A": {
+      "count": 144000,
+      "maximum": 0.005551229545904618,
+      "maximum_absolute": 0.005551229545904618,
+      "mean": -2.922268538280412e-06,
+      "minimum": -0.005520333632634933,
+      "rms": 0.0016095906293493846,
+      "std": 0.0016095879766064166
+    },
+    "raw_minus_shifted_g1_plus_eda_interaction_eV_per_atom": {
+      "count": 4000,
+      "maximum": -0.00023540631961319983,
+      "maximum_absolute": 0.001820253685663273,
+      "mean": -0.0009648957377822677,
+      "minimum": -0.001820253685663273,
+      "rms": 0.000997052925677412,
+      "std": 0.0002511787248385098
+    }
+  },
+  "locked_test_observations_opened": false,
+  "limitation": "Combined G1 source has no explicit method metadata. Shared quantum settings cannot be established from names alone; archived numerical cross-source tolerances are nonzero."
+}

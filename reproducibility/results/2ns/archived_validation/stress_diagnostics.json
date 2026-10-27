@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "utc": "2026-10-26T03:42:35.092320+00:00",
+  "job_id": "60294928",
+  "trajectories": 168,
+  "max_lag_ps": 50,
+  "correlation_timestep_fs": 0.5,
+  "block_lengths_ps": [
+    100,
+    200,
+    500
+  ],
+  "primary_scalar_rtol": 1e-10,
+  "full_0_20ps_curves_reproduced": true,
+  "all_100ps_block_prefixes_reproduced": true,
+  "diagonal_fft_validated_against_frozen_estimator": true,
+  "script_sha256": "ed2b93dedf7ba75b17c356a872abe37cee7abdc41cfe4c75f8002488dc11f559",
+  "stress_arrays_finite": true,
+  "display_stride": 20,
+  "primary_estimator_changed": false
+}

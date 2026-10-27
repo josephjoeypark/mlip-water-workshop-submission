@@ -1,0 +1,27 @@
+Figure 1. Equilibrium structure and density. O–O RDFs at 295 K are above densities at 275, 295, 315 and 336 K; OFF is left and LES is right, following the archived paper layout. NPT runs are 1 ns, using the final 500 ps. Adapted error bars/bands are sample SD across seeds 17/29/43 after averaging three MD replicas within each seed; baseline uncertainty is MD-replica SD. Soper RDF reference is at 298 K. Broad coverage reduces absolute density error but makes both liquids underdense and overestimates the first RDF peak.
+
+Figure 2. Transport from all 168 common 2 ns trajectories. Diffusion is above viscosity; OFF is left and LES is right. D_YH applies each trajectory’s Yeh–Hummer correction before seed averaging, retaining its covariance with raw D and viscosity. Both VACF D and Green–Kubo viscosity use the unchanged 5–10 ps running-integral mean at 0.5 fs correlation cadence. Adapted bars are three-training-seed sample SD; baseline bars are three-MD-replica sample SD. These are not confidence intervals. Finite-size-corrected D is an estimate; no larger-cell or viscosity-size extrapolation has been performed.
+
+Figure A1. Molecular energy and Cartesian-force-component RMSE on parent-disjoint validation families at 123,200 optimizer updates. The original final-supplement builder and data are retained, with the original four-panel layout. Bars report mean and sample SD across training seeds 17/29/43. These are validation results, not the locked test set. Molecular results are unaffected by the MD stress correction.
+
+Figure S1. Raw finite-cell VACF diffusion with viscosity, using exactly the main transport layout. Experimental diffusion is a bulk reference; raw values have not been finite-size corrected. The corrected comparison is Figure 2.
+
+Figure S2. Signed normalized five-channel stress autocorrelation over 0–1 ps at all temperatures. No absolute value, smoothing, or positive-only logarithmic transformation is used. Bands are training-seed sample SD (baseline: MD SD). Each lane is normalized before aggregation.
+
+Figure S3. Signed stress autocorrelation tails over 2–50 ps. Negative excursions and noise are retained. A tail close to zero alone does not establish convergence of its integral.
+
+Figure S4. Running Green–Kubo viscosity through 50 ps, calculated from all native 0.5 fs stress records. Dark and light shading indicate 5–10 and 10–20 ps windows. Longer-lag sensitivity is retained; no window was selected to improve agreement with experiment.
+
+Figure S5. Running viscosity through 20 ps with the same data and uncertainty conventions as Figure S4. Primary 5–10 ps scalar estimates reproduce the frozen completed analysis.
+
+Figure S6. Normalized oxygen VACF from the full 2 ns trajectories. Each lane is normalized before averaging within training seed and then across seeds. Display thinning is separate from the full-cadence integration.
+
+Figure S7. Raw finite-cell running VACF diffusion through 10 ps. The primary value is its 5–10 ps mean; the lane-wise finite-size shift is applied subsequently. No offset is added to this diagnostic curve.
+
+Figure S8. Whole-window Green–Kubo estimates for disjoint 0–1 and 1–2 ns intervals. Thin lines connect the same fitted seed (baseline: same MD replica); small points expose all seed means. Nonoverlap is not proof of statistical independence. Bars retain the main figure’s sample-SD convention.
+
+Figure S9. Disjoint-window Yeh–Hummer-corrected diffusion. The correction is recomputed using the viscosity and mean temperature of each same window; raw and corrected diffusion are therefore correlated with viscosity. Conventions follow Figure S8.
+
+Figure S10. Mean viscosity from nonoverlapping 100, 200 and 500 ps blocks, compared with the full 2 ns estimate (horizontal dotted lines). Each block is independently demeaned and correlated; these means differ from the whole-trajectory estimator. Error bars retain seed/MD sample SD, not block SEM. Block-SEM columns are diagnostic only; independence and a confidence interval are not asserted.
+
+Figure S11. Whole-prefix reanalyses at 1.0, 1.5 and 2.0 ns for 295 K. Prefixes share observations and are correlated. These are not cumulative means of separate 100 ps estimates. The full all-temperature values and per-lane comparisons are supplied as CSV.

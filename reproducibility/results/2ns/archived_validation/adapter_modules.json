@@ -1,0 +1,64 @@
+{
+  "passed": true,
+  "utc": "2026-10-26T03:42:43.260018+00:00",
+  "rank": 32,
+  "alpha": 32,
+  "injector_source": "archive/scratch/mace_off_water_isobar/neurips_123200_corrected_132traj_v2/vendor/mace/mace/modules/lora.py",
+  "injector_sha256": "b26b4ba9ee0f3e6edaf249bd1af7c00cc72f0c1cf4858a76a6a832c2a616f721",
+  "models": {
+    "OFF": {
+      "base_model_sha256": "4842c52ad210d6e1f84d6cf1ffa70fae25a7e0d755ed55cf223f43913f587db7",
+      "trainable_parameters": 235392,
+      "injected_total_parameters": 1663760,
+      "targets": [
+        "interactions.0.conv_tp_weights.layer0",
+        "interactions.0.conv_tp_weights.layer1",
+        "interactions.0.conv_tp_weights.layer2",
+        "interactions.0.conv_tp_weights.layer3",
+        "interactions.0.linear",
+        "interactions.0.linear_up",
+        "interactions.1.conv_tp_weights.layer0",
+        "interactions.1.conv_tp_weights.layer1",
+        "interactions.1.conv_tp_weights.layer2",
+        "interactions.1.conv_tp_weights.layer3",
+        "interactions.1.linear",
+        "interactions.1.linear_up",
+        "node_embedding.linear",
+        "products.0.linear",
+        "products.1.linear",
+        "readouts.0.linear",
+        "readouts.1.linear_1",
+        "readouts.1.linear_2"
+      ]
+    },
+    "LES": {
+      "base_model_sha256": "44c0f363dd577eafc0912341f44e658fcf5d58d02b88da8682562d654889cf80",
+      "trainable_parameters": 353216,
+      "injected_total_parameters": 2244576,
+      "targets": [
+        "interactions.0.conv_tp_weights.layer0",
+        "interactions.0.conv_tp_weights.layer1",
+        "interactions.0.conv_tp_weights.layer2",
+        "interactions.0.conv_tp_weights.layer3",
+        "interactions.0.linear",
+        "interactions.0.linear_up",
+        "interactions.1.conv_tp_weights.layer0",
+        "interactions.1.conv_tp_weights.layer1",
+        "interactions.1.conv_tp_weights.layer2",
+        "interactions.1.conv_tp_weights.layer3",
+        "interactions.1.linear",
+        "interactions.1.linear_up",
+        "les_readouts.0.linear",
+        "les_readouts.1.linear_1",
+        "les_readouts.1.linear_2",
+        "node_embedding.linear",
+        "products.0.linear",
+        "products.1.linear",
+        "readouts.0.linear",
+        "readouts.1.linear_1",
+        "readouts.1.linear_2"
+      ]
+    }
+  },
+  "scope": "CPU topology reconstruction using the actual hashed foundation models and pinned injector; no training, inference or MD. Counts reproduce the archived paper manifest."
+}

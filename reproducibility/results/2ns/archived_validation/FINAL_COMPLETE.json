@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "complete": true,
+  "utc": "2026-10-26T13:51:27.846703+00:00",
+  "trajectories_complete": 168,
+  "target_ps": 2000,
+  "total_NVT_ns": 336,
+  "NPT_ps": 1000,
+  "all_exact_final_restarts_passed": true,
+  "segment_bindings_checked": 2688,
+  "report": "archive/home/neurips_2ns_final_20261026/final_2ns_report.pdf",
+  "paper_figures": "archive/home/neurips_2ns_final_20261026/paper_figures.pdf",
+  "package": "archive/home/neurips_2ns_final_20261026",
+  "zip": "archive/home/neurips_2ns_final_20261026.zip",
+  "primary_estimator_changed": false,
+  "old_LES_bulk_values_superseded": true,
+  "broad_coverage_295K_viscosity_ratio": 1.2069764314401468,
+  "visual_review": "All 14 overview figures and two report pages reviewed; layout retained, no clipped bars.",
+  "remaining_limits": [
+    "long-lag sensitivity",
+    "finite cell size",
+    "no matched periodic quantum control",
+    "no alternative adaptation or LES-readout ablation",
+    "separate G1 fragment-label source lacks exact quantum-method metadata and contains a nonzero rotational force residual"
+  ],
+  "paper_source_status": "Replacement manuscript sections supplied; original full manuscript source unavailable."
+}
