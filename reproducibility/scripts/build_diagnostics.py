@@ -60,9 +60,6 @@ def main():
                     selected={int(k):{kk:(vv[(stress[int(k)]['stress_time_ps']>=xlim[0])&(stress[int(k)]['stress_time_ps']<=xlim[1])] if kk in ['stress_time_ps',key] else vv) for kk,vv in stress[int(k)].items()} for k in g.lane_id}
                     line(ax,g,selected,'stress_time_ps',key)
                 ax.axhline(0,color='.45',lw=.5)
-                if key.startswith('running'):
-                    ax.axvspan(5,10,color='.5',alpha=.12,zorder=0)
-                    ax.axvspan(10,20,color='.5',alpha=.05,zorder=0)
                 ax.set_xlim(*xlim)
                 if j==0:ax.set_ylabel(ylabel)
                 if i==3:ax.set_xlabel('Lag time (ps)')
@@ -149,7 +146,7 @@ def main():
             axes[0,0].set_ylabel('Normalized stress ACF');axes[0,1].set_ylim(-.02,.02);axes[0,1].set_xlim(2,50)
             # The zoom is explicit; the untruncated signed tail is in Figure S3.
             axes[0,1].set_title('Tail zoom (±0.02)',fontsize=8)
-            axes[1,0].set_ylabel(r'$\eta(t)$ (mPa s)');axes[1,0].axvspan(5,10,color='.5',alpha=.1)
+            axes[1,0].set_ylabel(r'$\eta(t)$ (mPa s)')
             ax=axes[1,1]
             for k,f in enumerate([first,second]):
                 q=f[f.lane_id.isin(g.lane_id)]

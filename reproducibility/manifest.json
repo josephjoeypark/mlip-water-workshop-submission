@@ -3135,9 +3135,9 @@
       "path": "results/2ns/FIGURE_CAPTIONS.txt",
       "source": "final-2ns/FIGURE_CAPTIONS.txt",
       "source_sha256": "b1fc6357b28bf4b0ba1b5a527440476e1e174b20c5f9c3e6c9190572fadf5e55",
-      "sha256": "b1fc6357b28bf4b0ba1b5a527440476e1e174b20c5f9c3e6c9190572fadf5e55",
-      "bytes": 4324,
-      "transformation": "byte-for-byte copy"
+      "sha256": "3fc03cc1eb0c3f160eedb8713f0bdddb3c78be146167c25edd505de2280c3676",
+      "bytes": 4352,
+      "transformation": "Updated Green–Kubo caption after removing integration-window shading."
     },
     {
       "path": "results/2ns/report_notes.pdf",
@@ -3215,9 +3215,9 @@
       "path": "scripts/build_diagnostics.py",
       "source": "final-2ns/scripts/build_diagnostics.py",
       "source_sha256": "f7ddcaee1d31065e107f9c7349515a998a938945a9ca6e307026cb232f4b0174",
-      "sha256": "f7ddcaee1d31065e107f9c7349515a998a938945a9ca6e307026cb232f4b0174",
-      "bytes": 11981,
-      "transformation": "byte-for-byte copy"
+      "sha256": "7239fbf4fee844892452b03495da722d097f6e5b57ec073426935cb8dcc9116e",
+      "bytes": 11756,
+      "transformation": "Removed gray integration-window shading from Green–Kubo overview and per-state plots."
     },
     {
       "path": "scripts/compare_transport_reference.py",

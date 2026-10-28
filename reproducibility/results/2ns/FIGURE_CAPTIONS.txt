@@ -10,7 +10,7 @@ Figure S2. Signed normalized five-channel stress autocorrelation over 0–1 ps a
 
 Figure S3. Signed stress autocorrelation tails over 2–50 ps. Negative excursions and noise are retained. A tail close to zero alone does not establish convergence of its integral.
 
-Figure S4. Running Green–Kubo viscosity through 50 ps, calculated from all native 0.5 fs stress records. Dark and light shading indicate 5–10 and 10–20 ps windows. Longer-lag sensitivity is retained; no window was selected to improve agreement with experiment.
+Figure S4. Running Green–Kubo viscosity through 50 ps, calculated from all native 0.5 fs stress records. The primary and sensitivity estimates use the 5–10 and 10–20 ps windows, respectively. Longer-lag sensitivity is retained; no window was selected to improve agreement with experiment.
 
 Figure S5. Running viscosity through 20 ps with the same data and uncertainty conventions as Figure S4. Primary 5–10 ps scalar estimates reproduce the frozen completed analysis.
 

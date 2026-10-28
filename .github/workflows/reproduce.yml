@@ -28,3 +28,15 @@ jobs:
       - run: pip install -r reproducibility/environment/requirements-analysis.txt
       - run: python reproducibility/scripts/verify.py
       - run: bash reproducibility/run_reproduce.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: green-kubo-figures
+          if-no-files-found: error
+          path: |
+            runs/reproducibility-2ns/figures/figureS4_green_kubo_50ps.pdf
+            runs/reproducibility-2ns/figures/figureS4_green_kubo_50ps.png
+            runs/reproducibility-2ns/figures/figureS5_green_kubo_20ps.pdf
+            runs/reproducibility-2ns/figures/figureS5_green_kubo_20ps.png
+            runs/reproducibility-2ns/figures/all_24_states.pdf
+            runs/reproducibility-2ns/final_2ns_report.pdf
+            runs/reproducibility-2ns/FIGURE_CAPTIONS.txt
