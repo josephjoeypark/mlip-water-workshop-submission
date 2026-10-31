@@ -1,4 +1,4 @@
-# Molecular-to-liquid deployment audit
+# From Clusters to Bulk Water: Coverage and Validation of LoRA-Adapted Foundation Potentials
 
 Code and data for water-cluster adaptation and liquid-water simulations with
 MACEOFF23(M) and MACELES-OFF. The study covers three coverage conditions,
